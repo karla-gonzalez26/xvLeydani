@@ -1,321 +1,1062 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
 <title>XV Años de Leydani Troche</title>
 
 <style>
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
-}
-
-body{
-    font-family: Georgia, 'Times New Roman', serif;
-    background:#071d18;
-    color:#fff;
-    overflow-x:hidden;
+    box-sizing:border-box;
 }
 
 html{
     scroll-behavior:smooth;
 }
 
-/* FONDO */
+body{
+
+    font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+    background:#061b16;
+
+    color:#fff;
+
+    overflow-x:hidden;
+
+}
+
+
+/* =========================
+   FONDO MÁGICO
+========================= */
+
 body::before{
+
     content:"";
+
     position:fixed;
+
     inset:0;
+
+    z-index:-10;
+
     background:
-        radial-gradient(circle at 20% 20%, rgba(115,180,130,.18), transparent 25%),
-        radial-gradient(circle at 80% 70%, rgba(224,190,94,.12), transparent 25%),
-        linear-gradient(135deg,#061713,#0b3027,#123e31);
-    z-index:-2;
+
+    radial-gradient(
+        circle at 15% 20%,
+        rgba(116,185,128,.18),
+        transparent 25%
+    ),
+
+    radial-gradient(
+        circle at 85% 30%,
+        rgba(226,197,105,.12),
+        transparent 25%
+    ),
+
+    radial-gradient(
+        circle at 50% 90%,
+        rgba(53,115,87,.22),
+        transparent 30%
+    ),
+
+    linear-gradient(
+        145deg,
+        #03120f,
+        #0a2c22,
+        #0c392b,
+        #061b16
+    );
+
 }
 
-/* LUCIÉRNAGAS */
+
+/* =========================
+   LUCIÉRNAGAS
+========================= */
+
 .firefly{
+
     position:fixed;
-    width:5px;
-    height:5px;
-    background:#f7e89b;
+
+    width:6px;
+    height:6px;
+
     border-radius:50%;
-    box-shadow:0 0 12px 4px rgba(255,240,130,.8);
-    animation:float 5s infinite ease-in-out;
-    z-index:10;
+
+    background:#fff4a3;
+
+    box-shadow:
+
+    0 0 7px #fff4a3,
+    0 0 18px #f7df71,
+    0 0 30px rgba(255,224,102,.5);
+
+    z-index:20;
+
+    animation:
+    fireflyMove
+    6s infinite ease-in-out;
+
 }
 
-.f1{left:10%;top:20%;animation-delay:0s}
-.f2{left:25%;top:70%;animation-delay:1s}
-.f3{left:45%;top:30%;animation-delay:2s}
-.f4{left:70%;top:15%;animation-delay:1.5s}
-.f5{left:85%;top:60%;animation-delay:3s}
-.f6{left:55%;top:85%;animation-delay:2.5s}
-.f7{left:15%;top:45%;animation-delay:4s}
-.f8{left:90%;top:30%;animation-delay:1s}
-
-@keyframes float{
-    0%,100%{opacity:.2;transform:translateY(0)}
-    50%{opacity:1;transform:translateY(-25px)}
+.f1{
+    left:8%;
+    top:20%;
 }
 
-/* PORTADA */
-.cover{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:30px 20px;
-    position:relative;
+.f2{
+    left:20%;
+    top:65%;
+    animation-delay:1s;
 }
 
-.cover-content{
-    max-width:600px;
-    animation:appear 2s ease;
+.f3{
+    left:38%;
+    top:30%;
+    animation-delay:2s;
 }
 
-@keyframes appear{
-    from{
-        opacity:0;
-        transform:translateY(35px);
+.f4{
+    left:62%;
+    top:17%;
+    animation-delay:3s;
+}
+
+.f5{
+    left:82%;
+    top:58%;
+    animation-delay:1.5s;
+}
+
+.f6{
+    left:52%;
+    top:80%;
+    animation-delay:2.5s;
+}
+
+.f7{
+    left:14%;
+    top:45%;
+    animation-delay:4s;
+}
+
+.f8{
+    left:90%;
+    top:28%;
+    animation-delay:3.5s;
+}
+
+.f9{
+    left:72%;
+    top:82%;
+    animation-delay:1.8s;
+}
+
+.f10{
+    left:32%;
+    top:88%;
+    animation-delay:4.5s;
+}
+
+@keyframes fireflyMove{
+
+    0%,100%{
+
+        opacity:.15;
+
+        transform:
+        translate(0,0)
+        scale(.8);
+
     }
-    to{
+
+    50%{
+
         opacity:1;
+
+        transform:
+        translate(20px,-30px)
+        scale(1.3);
+
+    }
+
+}
+
+
+/* =========================
+   SOBRE INICIAL
+========================= */
+
+#opening{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:1000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+
+    radial-gradient(
+        circle,
+        #164a38,
+        #061b16 70%
+    );
+
+    transition:
+
+    opacity 1s ease,
+    visibility 1s ease;
+
+}
+
+#opening.closed{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+}
+
+
+.envelope-container{
+
+    text-align:center;
+
+    width:90%;
+
+    max-width:430px;
+
+}
+
+
+.envelope{
+
+    position:relative;
+
+    width:320px;
+
+    max-width:85vw;
+
+    height:210px;
+
+    margin:auto;
+
+    background:#e7d7a0;
+
+    border-radius:8px;
+
+    box-shadow:
+
+    0 25px 60px
+    rgba(0,0,0,.55);
+
+    cursor:pointer;
+
+    transition:.5s;
+
+}
+
+
+.envelope:hover{
+
+    transform:
+    scale(1.03)
+    translateY(-5px);
+
+}
+
+
+.envelope-back{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#d6c486;
+
+    border-radius:8px;
+
+}
+
+
+.envelope-left{
+
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-top:105px solid transparent;
+
+    border-bottom:105px solid transparent;
+
+    border-left:160px solid #c5ae69;
+
+}
+
+
+.envelope-right{
+
+    position:absolute;
+
+    right:0;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-top:105px solid transparent;
+
+    border-bottom:105px solid transparent;
+
+    border-right:160px solid #c5ae69;
+
+}
+
+
+.envelope-bottom{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:0;
+    height:0;
+
+    border-left:160px solid transparent;
+
+    border-right:160px solid transparent;
+
+    border-bottom:125px solid #d8c684;
+
+}
+
+
+.envelope-flap{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:0;
+    height:0;
+
+    border-left:160px solid transparent;
+
+    border-right:160px solid transparent;
+
+    border-top:115px solid #f0dfa6;
+
+    transform-origin:top;
+
+    transition:
+
+    transform 1s ease;
+
+    z-index:5;
+
+}
+
+
+.envelope.open .envelope-flap{
+
+    transform:
+    rotateX(180deg);
+
+}
+
+
+.seal{
+
+    position:absolute;
+
+    z-index:10;
+
+    left:50%;
+    top:50%;
+
+    transform:
+    translate(-50%,-50%);
+
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    background:#164a38;
+
+    border:3px solid #e8d27e;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    box-shadow:
+    0 0 25px rgba(231,207,116,.45);
+
+}
+
+
+.open-text{
+
+    margin-top:35px;
+
+    color:#f2df8a;
+
+    font-size:19px;
+
+    letter-spacing:2px;
+
+}
+
+
+.tap{
+
+    margin-top:12px;
+
+    color:#d7d4c2;
+
+    font-size:14px;
+
+}
+
+
+/* =========================
+   PORTADA
+========================= */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:30px 20px;
+
+}
+
+
+.hero-content{
+
+    max-width:700px;
+
+    animation:heroAppear 2s ease;
+
+}
+
+
+@keyframes heroAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+}
+
+
+.lotus{
+
+    font-size:60px;
+
+    margin-bottom:15px;
+
+    filter:
+    drop-shadow(
+    0 0 12px
+    rgba(255,255,255,.25)
+    );
+
+}
+
+
+.pre-title{
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+    font-size:12px;
+
+    color:#e8d27e;
+
+}
+
+
+.hero h1{
+
+    font-size:
+    clamp(55px,14vw,100px);
+
+    color:#f1dd87;
+
+    margin:10px 0;
+
+    font-weight:normal;
+
+    text-shadow:
+
+    0 0 20px
+    rgba(240,214,111,.2);
+
+}
+
+
+.xv{
+
+    font-size:28px;
+
+    letter-spacing:5px;
+
+}
+
+
+.hero-date{
+
+    margin-top:25px;
+
+    font-size:20px;
+
+    letter-spacing:2px;
+
+}
+
+
+.scroll{
+
+    margin-top:45px;
+
+    color:#d9d5c0;
+
+    font-size:13px;
+
+    animation:bounce 2s infinite;
+
+}
+
+
+@keyframes bounce{
+
+    0%,100%{
         transform:translateY(0);
     }
+
+    50%{
+        transform:translateY(10px);
+    }
+
 }
 
-.lily{
-    font-size:55px;
-    margin-bottom:15px;
-}
 
-.small{
-    letter-spacing:5px;
-    font-size:13px;
-    text-transform:uppercase;
-    color:#e7d78a;
-}
+/* =========================
+   SECCIONES
+========================= */
 
-h1{
-    font-size:clamp(48px,12vw,85px);
-    margin:12px 0;
-    color:#f4df91;
-    text-shadow:0 0 20px rgba(244,223,145,.25);
-}
-
-.subtitle{
-    font-size:22px;
-    letter-spacing:2px;
-}
-
-.date{
-    margin-top:25px;
-    font-size:20px;
-}
-
-.open-btn{
-    margin-top:35px;
-    padding:15px 32px;
-    border:1px solid #e8d27e;
-    border-radius:40px;
-    background:rgba(0,0,0,.2);
-    color:#fff;
-    font-size:16px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.open-btn:hover{
-    background:#e8d27e;
-    color:#10251e;
-    transform:scale(1.05);
-}
-
-/* SECCIONES */
 section{
-    padding:75px 20px;
+
+    padding:
+    85px 20px;
+
     text-align:center;
+
 }
+
 
 .container{
-    max-width:850px;
+
+    max-width:900px;
+
     margin:auto;
+
 }
 
-.section-title{
-    color:#e8d27e;
-    font-size:32px;
-    margin-bottom:18px;
+
+.title{
+
+    color:#ead47d;
+
+    font-size:
+    clamp(28px,7vw,40px);
+
+    font-weight:normal;
+
 }
+
 
 .divider{
-    width:90px;
+
+    width:100px;
+
     height:2px;
-    background:#e8d27e;
-    margin:20px auto 35px;
+
+    margin:
+    20px auto 35px;
+
+    background:#e5ce73;
+
+    box-shadow:
+    0 0 10px
+    rgba(229,206,115,.3);
+
 }
 
-.message{
-    font-size:19px;
-    line-height:1.8;
-    color:#f5f1dd;
+
+.text{
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    color:#eeeadd;
+
 }
 
-/* CUENTA REGRESIVA */
+
+/* =========================
+   CUENTA REGRESIVA
+========================= */
+
 .countdown{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    margin-top:30px;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+
+    max-width:700px;
+
+    margin:
+    40px auto 0;
+
 }
 
-.time-box{
-    padding:20px 10px;
-    border:1px solid rgba(232,210,126,.5);
-    border-radius:15px;
-    background:rgba(255,255,255,.05);
+
+.time{
+
+    padding:22px 10px;
+
+    border:
+
+    1px solid
+    rgba(234,212,125,.35);
+
+    border-radius:18px;
+
+    background:
+    rgba(255,255,255,.045);
+
+    backdrop-filter:
+    blur(8px);
+
 }
 
-.time-box strong{
+
+.time strong{
+
     display:block;
-    font-size:32px;
-    color:#f1d979;
+
+    color:#efd879;
+
+    font-size:34px;
+
 }
 
-.time-box span{
-    font-size:12px;
+
+.time span{
+
+    font-size:11px;
+
     text-transform:uppercase;
+
+    color:#ddd8c2;
+
 }
 
-/* EVENTOS */
+
+/* =========================
+   EVENTOS
+========================= */
+
 .events{
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+    repeat(2,1fr);
+
     gap:25px;
+
 }
 
-.card{
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(232,210,126,.35);
+
+.event{
+
+    padding:38px 25px;
+
     border-radius:25px;
-    padding:35px 25px;
-    backdrop-filter:blur(5px);
+
+    background:
+    rgba(255,255,255,.055);
+
+    border:
+    1px solid
+    rgba(234,212,125,.3);
+
+    backdrop-filter:
+    blur(8px);
+
+    box-shadow:
+    0 15px 40px
+    rgba(0,0,0,.15);
+
 }
 
-.card-icon{
-    font-size:40px;
+
+.event-icon{
+
+    font-size:48px;
+
     margin-bottom:15px;
+
 }
 
-.card h3{
-    color:#f0d778;
-    font-size:25px;
-    margin-bottom:15px;
+
+.event h3{
+
+    color:#efd879;
+
+    font-size:26px;
+
+    font-weight:normal;
+
+    margin-bottom:18px;
+
 }
 
-.card p{
+
+.event p{
+
     line-height:1.8;
-    margin-bottom:20px;
+
+    color:#e5e2d3;
+
 }
 
-.maps-btn{
+
+.maps{
+
     display:inline-block;
-    padding:11px 22px;
+
+    margin-top:25px;
+
+    padding:12px 24px;
+
     border-radius:30px;
-    background:#e8d27e;
-    color:#10251e;
+
+    background:#e7d27d;
+
+    color:#10251d;
+
     text-decoration:none;
+
+    font-family:Arial,sans-serif;
+
+    font-size:14px;
+
     font-weight:bold;
-    transition:.3s;
+
 }
 
-.maps-btn:hover{
-    transform:scale(1.05);
-}
 
-/* MÚSICA */
-.music-box{
+/* =========================
+   MÚSICA
+========================= */
+
+.music{
+
+    max-width:600px;
+
     margin:auto;
-    max-width:500px;
-    padding:30px;
-    border-radius:25px;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(232,210,126,.35);
+
+    padding:40px 25px;
+
+    border-radius:28px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid
+    rgba(234,212,125,.3);
+
 }
 
-.music-btn{
+
+.music-icon{
+
+    font-size:55px;
+
+    margin-bottom:20px;
+
+}
+
+
+.music a{
+
     display:inline-block;
-    margin-top:20px;
+
+    margin-top:25px;
+
     padding:13px 28px;
+
     border-radius:30px;
+
     background:#e8d27e;
-    color:#10251e;
+
+    color:#10251d;
+
     text-decoration:none;
+
+    font-family:Arial,sans-serif;
+
     font-weight:bold;
+
 }
 
-/* RSVP */
-.rsvp{
-    background:rgba(0,0,0,.15);
+
+/* =========================
+   CONFIRMACIÓN
+========================= */
+
+.confirm{
+
+    background:
+    rgba(0,0,0,.12);
+
 }
+
 
 .whatsapp{
+
     display:inline-block;
+
     margin-top:25px;
-    padding:14px 28px;
-    border-radius:30px;
+
+    padding:15px 30px;
+
+    border-radius:35px;
+
     background:#e8d27e;
-    color:#10251e;
+
+    color:#10251d;
+
     text-decoration:none;
+
+    font-family:Arial,sans-serif;
+
     font-weight:bold;
+
 }
 
-/* FINAL */
+
+/* =========================
+   FOOTER
+========================= */
+
 footer{
-    padding:55px 20px;
+
     text-align:center;
-    background:#04120f;
+
+    padding:
+    70px 20px;
+
+    background:#03100d;
+
 }
+
 
 footer h2{
+
     color:#e8d27e;
-    margin-bottom:15px;
+
+    font-size:25px;
+
+    font-weight:normal;
+
 }
+
 
 footer p{
-    color:#d8d5c4;
+
+    margin-top:15px;
+
+    color:#d5d1bd;
+
 }
 
-/* RESPONSIVE */
+
+.symbols{
+
+    margin-top:25px;
+
+    font-size:30px;
+
+}
+
+
+/* =========================
+   MÓVIL
+========================= */
+
 @media(max-width:650px){
 
+    .envelope{
+
+        width:280px;
+
+        height:185px;
+
+    }
+
+    .envelope-left{
+
+        border-top-width:92px;
+        border-bottom-width:92px;
+        border-left-width:140px;
+
+    }
+
+    .envelope-right{
+
+        border-top-width:92px;
+        border-bottom-width:92px;
+        border-right-width:140px;
+
+    }
+
+    .envelope-bottom{
+
+        border-left-width:140px;
+        border-right-width:140px;
+        border-bottom-width:110px;
+
+    }
+
+    .envelope-flap{
+
+        border-left-width:140px;
+        border-right-width:140px;
+        border-top-width:100px;
+
+    }
+
     .events{
+
         grid-template-columns:1fr;
+
     }
 
     .countdown{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+        repeat(2,1fr);
+
     }
 
     section{
-        padding:60px 18px;
+
+        padding:
+        65px 18px;
+
     }
 
-    .message{
+    .text{
+
         font-size:17px;
+
     }
 
 }
+
+
+/* =========================
+   OCULTAR SCROLL AL INICIO
+========================= */
+
+body.locked{
+
+    overflow:hidden;
+
+}
+
 </style>
+
 </head>
 
-<body>
 
-<!-- LUCIÉRNAGAS -->
+<body class="locked">
+
+
+<!-- =========================
+     LUCIÉRNAGAS
+========================= -->
+
 <div class="firefly f1"></div>
 <div class="firefly f2"></div>
 <div class="firefly f3"></div>
@@ -324,63 +1065,158 @@ footer p{
 <div class="firefly f6"></div>
 <div class="firefly f7"></div>
 <div class="firefly f8"></div>
+<div class="firefly f9"></div>
+<div class="firefly f10"></div>
 
-<!-- PORTADA -->
-<header class="cover">
 
-    <div class="cover-content">
+<!-- =========================
+     SOBRE
+========================= -->
 
-        <div class="lily">🪷</div>
+<div id="opening">
 
-        <div class="small">
+    <div class="envelope-container">
+
+        <div
+        class="envelope"
+        id="envelope"
+        onclick="openInvitation()">
+
+            <div class="envelope-back"></div>
+
+            <div class="envelope-left"></div>
+
+            <div class="envelope-right"></div>
+
+            <div class="envelope-bottom"></div>
+
+            <div class="envelope-flap"></div>
+
+            <div class="seal">
+                🪷
+            </div>
+
+        </div>
+
+
+        <div class="open-text">
+
+            Invitación de XV Años
+
+        </div>
+
+
+        <div class="tap">
+
+            Toca el sobre para abrir
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     PORTADA
+========================= -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="lotus">
+            🪷
+        </div>
+
+
+        <div class="pre-title">
+
             Una noche mágica está por comenzar
+
         </div>
 
-        <h1>Leydani</h1>
 
-        <div class="subtitle">
-            Mis XV Años
+        <h1>
+
+            Leydani
+
+        </h1>
+
+
+        <div class="xv">
+
+            MIS XV AÑOS
+
         </div>
 
-        <div class="date">
-            05 · 12 · 2026
+
+        <div class="hero-date">
+
+            05 · DICIEMBRE · 2026
+
         </div>
 
-        <button class="open-btn"
-        onclick="document.getElementById('inicio').scrollIntoView()">
-            ✨ Abrir invitación ✨
-        </button>
+
+        <div class="scroll">
+
+            ✨ Desliza para descubrir la invitación ✨
+
+        </div>
 
     </div>
 
 </header>
 
 
-<!-- MENSAJE -->
-<section id="inicio">
+
+<!-- =========================
+     MENSAJE
+========================= -->
+
+<section>
 
     <div class="container">
 
-        <h2 class="section-title">
+        <h2 class="title">
+
             Una noche de ensueño
+
         </h2>
+
 
         <div class="divider"></div>
 
-        <p class="message">
-            Hay momentos en la vida que se convierten
-            en recuerdos para siempre.
+
+        <p class="text">
+
+            Hay momentos que quedan guardados
+            para siempre en el corazón.
+
             <br><br>
 
-            Hoy quiero compartir contigo una noche
-            llena de magia, ilusión y alegría,
-            celebrando mis XV años.
+            Hoy quiero compartir contigo una
+            noche llena de magia, ilusión,
+            alegría y nuevos comienzos.
+
+            <br><br>
+
+            Con mucho cariño te invito a celebrar
+            conmigo uno de los momentos más
+            especiales de mi vida:
+
             <br><br>
 
             <strong>
-                Me encantará contar con tu presencia
-                en este día tan especial.
+                Mis XV Años.
             </strong>
+
+            <br><br>
+
+            Tu presencia hará que esta noche
+            sea todavía más especial.
+
         </p>
 
     </div>
@@ -388,37 +1224,84 @@ footer p{
 </section>
 
 
-<!-- CUENTA REGRESIVA -->
+
+<!-- =========================
+     CUENTA REGRESIVA
+========================= -->
+
 <section>
 
     <div class="container">
 
-        <h2 class="section-title">
-            Falta muy poco...
+        <h2 class="title">
+
+            La magia está por comenzar
+
         </h2>
 
+
         <div class="divider"></div>
+
+
+        <p class="text">
+
+            Cada segundo nos acerca
+            a este día tan esperado.
+
+        </p>
+
 
         <div class="countdown">
 
-            <div class="time-box">
-                <strong id="days">0</strong>
-                <span>Días</span>
+            <div class="time">
+
+                <strong id="days">
+                    0
+                </strong>
+
+                <span>
+                    Días
+                </span>
+
             </div>
 
-            <div class="time-box">
-                <strong id="hours">0</strong>
-                <span>Horas</span>
+
+            <div class="time">
+
+                <strong id="hours">
+                    0
+                </strong>
+
+                <span>
+                    Horas
+                </span>
+
             </div>
 
-            <div class="time-box">
-                <strong id="minutes">0</strong>
-                <span>Minutos</span>
+
+            <div class="time">
+
+                <strong id="minutes">
+                    0
+                </strong>
+
+                <span>
+                    Minutos
+                </span>
+
             </div>
 
-            <div class="time-box">
-                <strong id="seconds">0</strong>
-                <span>Segundos</span>
+
+            <div class="time">
+
+                <strong id="seconds">
+                    0
+                </strong>
+
+                <span>
+                    Segundos
+                </span>
+
             </div>
 
         </div>
@@ -428,66 +1311,154 @@ footer p{
 </section>
 
 
-<!-- EVENTOS -->
+
+<!-- =========================
+     EVENTOS
+========================= -->
+
 <section>
 
     <div class="container">
 
-        <h2 class="section-title">
-            Celebremos juntos
+        <h2 class="title">
+
+            Acompáñame
+
         </h2>
 
+
         <div class="divider"></div>
+
 
         <div class="events">
 
+
             <!-- IGLESIA -->
-            <div class="card">
 
-                <div class="card-icon">⛪</div>
+            <div class="event">
 
-                <h3>Ceremonia religiosa</h3>
+                <div class="event-icon">
+
+                    ⛪
+
+                </div>
+
+
+                <h3>
+
+                    Ceremonia religiosa
+
+                </h3>
+
 
                 <p>
-                    <strong>Horario:</strong><br>
-                    PENDIENTE
+
+                    <strong>
+                        Fecha
+                    </strong>
+
+                    <br>
+
+                    05 de diciembre de 2026
+
                     <br><br>
 
-                    <strong>Lugar:</strong><br>
+
+                    <strong>
+                        Hora
+                    </strong>
+
+                    <br>
+
                     PENDIENTE
+
+                    <br><br>
+
+
+                    <strong>
+                        Lugar
+                    </strong>
+
+                    <br>
+
+                    PENDIENTE
+
                 </p>
 
+
                 <a
-                class="maps-btn"
+                class="maps"
                 href="https://www.google.com/maps"
                 target="_blank">
+
                     📍 Ver ubicación
+
                 </a>
 
             </div>
 
 
-            <!-- SALÓN -->
-            <div class="card">
 
-                <div class="card-icon">🥂</div>
+            <!-- RECEPCIÓN -->
 
-                <h3>Recepción</h3>
+            <div class="event">
+
+                <div class="event-icon">
+
+                    🥂
+
+                </div>
+
+
+                <h3>
+
+                    Recepción
+
+                </h3>
+
 
                 <p>
-                    <strong>Horario:</strong><br>
-                    PENDIENTE
+
+                    <strong>
+                        Fecha
+                    </strong>
+
+                    <br>
+
+                    05 de diciembre de 2026
+
                     <br><br>
 
-                    <strong>Salón:</strong><br>
+
+                    <strong>
+                        Hora
+                    </strong>
+
+                    <br>
+
                     PENDIENTE
+
+                    <br><br>
+
+
+                    <strong>
+                        Salón
+                    </strong>
+
+                    <br>
+
+                    PENDIENTE
+
                 </p>
 
+
                 <a
-                class="maps-btn"
+                class="maps"
                 href="https://www.google.com/maps"
                 target="_blank">
+
                     📍 Ver ubicación
+
                 </a>
 
             </div>
@@ -499,33 +1470,48 @@ footer p{
 </section>
 
 
-<!-- MÚSICA -->
+
+<!-- =========================
+     MÚSICA
+========================= -->
+
 <section>
 
     <div class="container">
 
-        <h2 class="section-title">
+        <h2 class="title">
+
             Una canción especial
+
         </h2>
+
 
         <div class="divider"></div>
 
-        <div class="music-box">
 
-            <div style="font-size:45px;">
+        <div class="music">
+
+            <div class="music-icon">
+
                 🎵
+
             </div>
 
-            <p class="message">
-                Esta canción acompañará
+
+            <p class="text">
+
+                Una canción para acompañar
                 este momento tan especial.
+
             </p>
 
+
             <a
-            class="music-btn"
             href="https://youtu.be/kYPGwIy-mbI?si=LhKPB2OmWFZdWcyq"
             target="_blank">
+
                 🎶 Escuchar canción
+
             </a>
 
         </div>
@@ -535,29 +1521,52 @@ footer p{
 </section>
 
 
-<!-- WHATSAPP -->
-<section class="rsvp">
+
+<!-- =========================
+     CONFIRMACIÓN
+========================= -->
+
+<section class="confirm">
 
     <div class="container">
 
-        <h2 class="section-title">
+        <h2 class="title">
+
             Confirma tu asistencia
+
         </h2>
+
 
         <div class="divider"></div>
 
-        <p class="message">
-            Será un honor compartir esta noche
-            contigo.
+
+        <p class="text">
+
+            Será un honor compartir contigo
+            esta noche tan especial.
+
             <br><br>
-            Por favor confirma tu asistencia.
+
+            ¡Espero verte ahí!
+
         </p>
+
+
+        <!--
+        CUANDO TENGAS EL NÚMERO,
+        CAMBIA EL # POR:
+
+        https://wa.me/52XXXXXXXXXX
+        -->
+
 
         <a
         class="whatsapp"
         href="#"
-        onclick="alert('Número de WhatsApp pendiente de agregar.')">
+        onclick="alert('El número de WhatsApp se agregará próximamente.')">
+
             💚 Confirmar por WhatsApp
+
         </a>
 
     </div>
@@ -565,81 +1574,193 @@ footer p{
 </section>
 
 
-<!-- FINAL -->
+
+<!-- =========================
+     FINAL
+========================= -->
+
 <footer>
 
     <h2>
-        ✨ Gracias por ser parte de mi historia ✨
+
+        Gracias por formar parte
+        de este momento
+
     </h2>
 
-    <p>
-        Leydani Troche
-    </p>
-
-    <br>
 
     <p>
-        05 de diciembre de 2026
+
+        Con cariño,
+
     </p>
 
-    <br>
 
-    <div style="font-size:35px;">
+    <p>
+
+        <strong>
+            Leydani Troche
+        </strong>
+
+    </p>
+
+
+    <p>
+
+        05 · 12 · 2026
+
+    </p>
+
+
+    <div class="symbols">
+
         🐸 🪷 ✨ 👑
+
     </div>
 
 </footer>
 
 
+
 <script>
 
-/* CUENTA REGRESIVA */
+/* =========================
+   ABRIR SOBRE
+========================= */
 
-const fechaXV = new Date("December 5, 2026 19:00:00").getTime();
+function openInvitation(){
 
-function actualizarCuenta(){
+    const envelope =
+    document.getElementById("envelope");
 
-    const ahora = new Date().getTime();
+    const opening =
+    document.getElementById("opening");
 
-    const diferencia = fechaXV - ahora;
 
-    if(diferencia <= 0){
+    envelope.classList.add("open");
 
-        document.getElementById("days").innerText = "0";
-        document.getElementById("hours").innerText = "0";
-        document.getElementById("minutes").innerText = "0";
-        document.getElementById("seconds").innerText = "0";
 
-        return;
-    }
+    setTimeout(function(){
 
-    const dias = Math.floor(
-        diferencia / (1000 * 60 * 60 * 24)
-    );
+        opening.classList.add("closed");
 
-    const horas = Math.floor(
-        (diferencia / (1000 * 60 * 60)) % 24
-    );
+        document.body.classList.remove("locked");
 
-    const minutos = Math.floor(
-        (diferencia / (1000 * 60)) % 60
-    );
+    },1000);
 
-    const segundos = Math.floor(
-        (diferencia / 1000) % 60
-    );
-
-    document.getElementById("days").innerText = dias;
-    document.getElementById("hours").innerText = horas;
-    document.getElementById("minutes").innerText = minutos;
-    document.getElementById("seconds").innerText = segundos;
 }
 
-actualizarCuenta();
 
-setInterval(actualizarCuenta,1000);
+
+/* =========================
+   CUENTA REGRESIVA
+========================= */
+
+/*
+   IMPORTANTE:
+
+   Mientras la hora de la fiesta
+   siga pendiente, esta cuenta está
+   programada provisionalmente para
+   las 7:00 PM.
+
+   Cuando tengas la hora exacta,
+   cambia 19:00:00.
+*/
+
+
+const targetDate =
+new Date(
+    "December 5, 2026 19:00:00"
+).getTime();
+
+
+
+function countdown(){
+
+    const now =
+    new Date().getTime();
+
+
+    const distance =
+    targetDate - now;
+
+
+    if(distance <= 0){
+
+        document.getElementById("days")
+        .innerText = "0";
+
+        document.getElementById("hours")
+        .innerText = "0";
+
+        document.getElementById("minutes")
+        .innerText = "0";
+
+        document.getElementById("seconds")
+        .innerText = "0";
+
+        return;
+
+    }
+
+
+    const days =
+    Math.floor(
+        distance /
+        (1000 * 60 * 60 * 24)
+    );
+
+
+    const hours =
+    Math.floor(
+        (distance /
+        (1000 * 60 * 60)) % 24
+    );
+
+
+    const minutes =
+    Math.floor(
+        (distance /
+        (1000 * 60)) % 60
+    );
+
+
+    const seconds =
+    Math.floor(
+        (distance / 1000) % 60
+    );
+
+
+    document.getElementById("days")
+    .innerText = days;
+
+
+    document.getElementById("hours")
+    .innerText = hours;
+
+
+    document.getElementById("minutes")
+    .innerText = minutes;
+
+
+    document.getElementById("seconds")
+    .innerText = seconds;
+
+}
+
+
+countdown();
+
+
+setInterval(
+    countdown,
+    1000
+);
 
 </script>
 
+
 </body>
+
 </html>
