@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XV Años de Leydani Troche</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family: Georgia, 'Times New Roman', serif;
+    background:#071d18;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* FONDO */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(115,180,130,.18), transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(224,190,94,.12), transparent 25%),
+        linear-gradient(135deg,#061713,#0b3027,#123e31);
+    z-index:-2;
+}
+
+/* LUCIÉRNAGAS */
+.firefly{
+    position:fixed;
+    width:5px;
+    height:5px;
+    background:#f7e89b;
+    border-radius:50%;
+    box-shadow:0 0 12px 4px rgba(255,240,130,.8);
+    animation:float 5s infinite ease-in-out;
+    z-index:10;
+}
+
+.f1{left:10%;top:20%;animation-delay:0s}
+.f2{left:25%;top:70%;animation-delay:1s}
+.f3{left:45%;top:30%;animation-delay:2s}
+.f4{left:70%;top:15%;animation-delay:1.5s}
+.f5{left:85%;top:60%;animation-delay:3s}
+.f6{left:55%;top:85%;animation-delay:2.5s}
+.f7{left:15%;top:45%;animation-delay:4s}
+.f8{left:90%;top:30%;animation-delay:1s}
+
+@keyframes float{
+    0%,100%{opacity:.2;transform:translateY(0)}
+    50%{opacity:1;transform:translateY(-25px)}
+}
+
+/* PORTADA */
+.cover{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px 20px;
+    position:relative;
+}
+
+.cover-content{
+    max-width:600px;
+    animation:appear 2s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.lily{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.small{
+    letter-spacing:5px;
+    font-size:13px;
+    text-transform:uppercase;
+    color:#e7d78a;
+}
+
+h1{
+    font-size:clamp(48px,12vw,85px);
+    margin:12px 0;
+    color:#f4df91;
+    text-shadow:0 0 20px rgba(244,223,145,.25);
+}
+
+.subtitle{
+    font-size:22px;
+    letter-spacing:2px;
+}
+
+.date{
+    margin-top:25px;
+    font-size:20px;
+}
+
+.open-btn{
+    margin-top:35px;
+    padding:15px 32px;
+    border:1px solid #e8d27e;
+    border-radius:40px;
+    background:rgba(0,0,0,.2);
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.open-btn:hover{
+    background:#e8d27e;
+    color:#10251e;
+    transform:scale(1.05);
+}
+
+/* SECCIONES */
+section{
+    padding:75px 20px;
+    text-align:center;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+}
+
+.section-title{
+    color:#e8d27e;
+    font-size:32px;
+    margin-bottom:18px;
+}
+
+.divider{
+    width:90px;
+    height:2px;
+    background:#e8d27e;
+    margin:20px auto 35px;
+}
+
+.message{
+    font-size:19px;
+    line-height:1.8;
+    color:#f5f1dd;
+}
+
+/* CUENTA REGRESIVA */
+.countdown{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:30px;
+}
+
+.time-box{
+    padding:20px 10px;
+    border:1px solid rgba(232,210,126,.5);
+    border-radius:15px;
+    background:rgba(255,255,255,.05);
+}
+
+.time-box strong{
+    display:block;
+    font-size:32px;
+    color:#f1d979;
+}
+
+.time-box span{
+    font-size:12px;
+    text-transform:uppercase;
+}
+
+/* EVENTOS */
+.events{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(232,210,126,.35);
+    border-radius:25px;
+    padding:35px 25px;
+    backdrop-filter:blur(5px);
+}
+
+.card-icon{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    color:#f0d778;
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.card p{
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.maps-btn{
+    display:inline-block;
+    padding:11px 22px;
+    border-radius:30px;
+    background:#e8d27e;
+    color:#10251e;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.maps-btn:hover{
+    transform:scale(1.05);
+}
+
+/* MÚSICA */
+.music-box{
+    margin:auto;
+    max-width:500px;
+    padding:30px;
+    border-radius:25px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(232,210,126,.35);
+}
+
+.music-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:13px 28px;
+    border-radius:30px;
+    background:#e8d27e;
+    color:#10251e;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* RSVP */
+.rsvp{
+    background:rgba(0,0,0,.15);
+}
+
+.whatsapp{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 28px;
+    border-radius:30px;
+    background:#e8d27e;
+    color:#10251e;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* FINAL */
+footer{
+    padding:55px 20px;
+    text-align:center;
+    background:#04120f;
+}
+
+footer h2{
+    color:#e8d27e;
+    margin-bottom:15px;
+}
+
+footer p{
+    color:#d8d5c4;
+}
+
+/* RESPONSIVE */
+@media(max-width:650px){
+
+    .events{
+        grid-template-columns:1fr;
+    }
+
+    .countdown{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    section{
+        padding:60px 18px;
+    }
+
+    .message{
+        font-size:17px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- LUCIÉRNAGAS -->
+<div class="firefly f1"></div>
+<div class="firefly f2"></div>
+<div class="firefly f3"></div>
+<div class="firefly f4"></div>
+<div class="firefly f5"></div>
+<div class="firefly f6"></div>
+<div class="firefly f7"></div>
+<div class="firefly f8"></div>
+
+<!-- PORTADA -->
+<header class="cover">
+
+    <div class="cover-content">
+
+        <div class="lily">🪷</div>
+
+        <div class="small">
+            Una noche mágica está por comenzar
+        </div>
+
+        <h1>Leydani</h1>
+
+        <div class="subtitle">
+            Mis XV Años
+        </div>
+
+        <div class="date">
+            05 · 12 · 2026
+        </div>
+
+        <button class="open-btn"
+        onclick="document.getElementById('inicio').scrollIntoView()">
+            ✨ Abrir invitación ✨
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- MENSAJE -->
+<section id="inicio">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Una noche de ensueño
+        </h2>
+
+        <div class="divider"></div>
+
+        <p class="message">
+            Hay momentos en la vida que se convierten
+            en recuerdos para siempre.
+            <br><br>
+
+            Hoy quiero compartir contigo una noche
+            llena de magia, ilusión y alegría,
+            celebrando mis XV años.
+            <br><br>
+
+            <strong>
+                Me encantará contar con tu presencia
+                en este día tan especial.
+            </strong>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CUENTA REGRESIVA -->
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Falta muy poco...
+        </h2>
+
+        <div class="divider"></div>
+
+        <div class="countdown">
+
+            <div class="time-box">
+                <strong id="days">0</strong>
+                <span>Días</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="hours">0</strong>
+                <span>Horas</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="minutes">0</strong>
+                <span>Minutos</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="seconds">0</strong>
+                <span>Segundos</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EVENTOS -->
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Celebremos juntos
+        </h2>
+
+        <div class="divider"></div>
+
+        <div class="events">
+
+            <!-- IGLESIA -->
+            <div class="card">
+
+                <div class="card-icon">⛪</div>
+
+                <h3>Ceremonia religiosa</h3>
+
+                <p>
+                    <strong>Horario:</strong><br>
+                    PENDIENTE
+                    <br><br>
+
+                    <strong>Lugar:</strong><br>
+                    PENDIENTE
+                </p>
+
+                <a
+                class="maps-btn"
+                href="https://www.google.com/maps"
+                target="_blank">
+                    📍 Ver ubicación
+                </a>
+
+            </div>
+
+
+            <!-- SALÓN -->
+            <div class="card">
+
+                <div class="card-icon">🥂</div>
+
+                <h3>Recepción</h3>
+
+                <p>
+                    <strong>Horario:</strong><br>
+                    PENDIENTE
+                    <br><br>
+
+                    <strong>Salón:</strong><br>
+                    PENDIENTE
+                </p>
+
+                <a
+                class="maps-btn"
+                href="https://www.google.com/maps"
+                target="_blank">
+                    📍 Ver ubicación
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MÚSICA -->
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Una canción especial
+        </h2>
+
+        <div class="divider"></div>
+
+        <div class="music-box">
+
+            <div style="font-size:45px;">
+                🎵
+            </div>
+
+            <p class="message">
+                Esta canción acompañará
+                este momento tan especial.
+            </p>
+
+            <a
+            class="music-btn"
+            href="https://youtu.be/kYPGwIy-mbI?si=LhKPB2OmWFZdWcyq"
+            target="_blank">
+                🎶 Escuchar canción
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHATSAPP -->
+<section class="rsvp">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Confirma tu asistencia
+        </h2>
+
+        <div class="divider"></div>
+
+        <p class="message">
+            Será un honor compartir esta noche
+            contigo.
+            <br><br>
+            Por favor confirma tu asistencia.
+        </p>
+
+        <a
+        class="whatsapp"
+        href="#"
+        onclick="alert('Número de WhatsApp pendiente de agregar.')">
+            💚 Confirmar por WhatsApp
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL -->
+<footer>
+
+    <h2>
+        ✨ Gracias por ser parte de mi historia ✨
+    </h2>
+
+    <p>
+        Leydani Troche
+    </p>
+
+    <br>
+
+    <p>
+        05 de diciembre de 2026
+    </p>
+
+    <br>
+
+    <div style="font-size:35px;">
+        🐸 🪷 ✨ 👑
+    </div>
+
+</footer>
+
+
+<script>
+
+/* CUENTA REGRESIVA */
+
+const fechaXV = new Date("December 5, 2026 19:00:00").getTime();
+
+function actualizarCuenta(){
+
+    const ahora = new Date().getTime();
+
+    const diferencia = fechaXV - ahora;
+
+    if(diferencia <= 0){
+
+        document.getElementById("days").innerText = "0";
+        document.getElementById("hours").innerText = "0";
+        document.getElementById("minutes").innerText = "0";
+        document.getElementById("seconds").innerText = "0";
+
+        return;
+    }
+
+    const dias = Math.floor(
+        diferencia / (1000 * 60 * 60 * 24)
+    );
+
+    const horas = Math.floor(
+        (diferencia / (1000 * 60 * 60)) % 24
+    );
+
+    const minutos = Math.floor(
+        (diferencia / (1000 * 60)) % 60
+    );
+
+    const segundos = Math.floor(
+        (diferencia / 1000) % 60
+    );
+
+    document.getElementById("days").innerText = dias;
+    document.getElementById("hours").innerText = horas;
+    document.getElementById("minutes").innerText = minutos;
+    document.getElementById("seconds").innerText = segundos;
+}
+
+actualizarCuenta();
+
+setInterval(actualizarCuenta,1000);
+
+</script>
+
+</body>
+</html>
