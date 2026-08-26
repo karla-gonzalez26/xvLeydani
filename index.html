@@ -1,48 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color" content="#294936">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XV Años | Leydani Troche</title>
 
 <style>
 
-/* =========================================================
-   XV LEYDANI
-   LA PRINCESA Y EL SAPO
-   CUENTO DE HADAS
-========================================================= */
-
 :root{
-    --verde-oscuro:#294936;
-    --verde:#4f7055;
-    --verde-claro:#a9c18f;
-
+    --verde:#31533c;
+    --verde2:#4d7050;
     --crema:#fbf7eb;
-    --crema-2:#f1ead8;
-
-    --dorado:#b9944e;
-    --dorado-claro:#dfca88;
-
+    --papel:#f3ead7;
+    --dorado:#b28a43;
+    --dorado2:#d9bd76;
     --texto:#526052;
 }
 
-
-/* =========================================================
-   GENERAL
-========================================================= */
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 html{
@@ -50,209 +28,45 @@ html{
 }
 
 body{
-
-    margin:0;
-
-    font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-    color:var(--texto);
-
+    font-family:Georgia,"Times New Roman",serif;
     background:
-    linear-gradient(
-        135deg,
-        #223b2c,
-        #4e704f,
-        #294534
-    );
-
+        radial-gradient(circle at top,#66815f,#294333);
+    color:var(--texto);
     overflow-x:hidden;
 }
 
-body.no-scroll{
-    overflow:hidden;
-}
 
-
-/* =========================================================
-   FONDO MÁGICO
-========================================================= */
-
-.magic-background{
-
-    position:fixed;
-    inset:0;
-
-    pointer-events:none;
-
-    overflow:hidden;
-
-    z-index:0;
-}
-
-.magic-background::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:550px;
-    height:550px;
-
-    left:-220px;
-    top:15%;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(220,235,188,.18),
-        transparent 70%
-    );
-}
-
-.magic-background::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:650px;
-    height:650px;
-
-    right:-280px;
-    bottom:-200px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(229,211,145,.15),
-        transparent 70%
-    );
-}
-
-
-/* =========================================================
-   HOJAS DECORATIVAS
-========================================================= */
-
-.leaf{
-
-    position:absolute;
-
-    width:140px;
-    height:65px;
-
-    border-radius:
-    100% 0 100% 0;
-
-    background:
-    rgba(224,238,199,.10);
-
-    transform:rotate(35deg);
-}
-
-.leaf:nth-child(1){
-    left:-50px;
-    top:18%;
-}
-
-.leaf:nth-child(2){
-    right:-60px;
-    top:42%;
-    transform:rotate(210deg);
-}
-
-.leaf:nth-child(3){
-    left:15%;
-    bottom:-30px;
-}
-
-.leaf:nth-child(4){
-    right:10%;
-    top:10%;
-    transform:rotate(130deg);
-}
-
-
-/* =========================================================
+/* =========================
    LUCIÉRNAGAS
-========================================================= */
+========================= */
 
 .firefly{
-
     position:fixed;
-
     width:5px;
     height:5px;
-
+    background:#f4e6a3;
     border-radius:50%;
-
-    background:#f6e9a7;
-
     box-shadow:
-    0 0 8px #fff2aa,
-    0 0 18px #e9d06b;
-
-    animation:
-    fly 6s infinite ease-in-out;
-
-    z-index:5;
+        0 0 8px #fff5bb,
+        0 0 18px #d9eaa4;
+    z-index:50;
+    animation:float 5s infinite ease-in-out;
+    pointer-events:none;
 }
 
-.firefly:nth-child(1){
-    left:8%;
-    top:20%;
-}
+.f1{left:8%;top:22%;}
+.f2{left:18%;top:65%;animation-delay:1s;}
+.f3{left:34%;top:32%;animation-delay:2s;}
+.f4{left:51%;top:72%;animation-delay:3s;}
+.f5{left:67%;top:19%;animation-delay:1.5s;}
+.f6{left:82%;top:48%;animation-delay:2.5s;}
+.f7{left:91%;top:78%;animation-delay:4s;}
 
-.firefly:nth-child(2){
-    left:20%;
-    top:60%;
-    animation-delay:1s;
-}
-
-.firefly:nth-child(3){
-    left:35%;
-    top:30%;
-    animation-delay:2s;
-}
-
-.firefly:nth-child(4){
-    left:50%;
-    top:75%;
-    animation-delay:3s;
-}
-
-.firefly:nth-child(5){
-    left:68%;
-    top:20%;
-    animation-delay:1.5s;
-}
-
-.firefly:nth-child(6){
-    left:80%;
-    top:55%;
-    animation-delay:2.5s;
-}
-
-.firefly:nth-child(7){
-    left:90%;
-    top:30%;
-    animation-delay:4s;
-}
-
-@keyframes fly{
-
+@keyframes float{
     0%,100%{
         opacity:.15;
         transform:translate(0,0);
     }
-
     50%{
         opacity:1;
         transform:translate(20px,-25px);
@@ -260,299 +74,202 @@ body.no-scroll{
 }
 
 
-/* =========================================================
-   REPRODUCTOR DE YOUTUBE OCULTO
-========================================================= */
-
-#musicPlayer{
-
-    position:fixed;
-
-    width:1px;
-    height:1px;
-
-    left:-100px;
-    top:-100px;
-
-    opacity:0;
-
-    pointer-events:none;
-}
-
-
-/* =========================================================
+/* =========================
    SOBRE
-========================================================= */
+========================= */
 
 #opening{
-
     position:fixed;
-
     inset:0;
-
-    z-index:9999;
-
+    z-index:1000;
     display:flex;
-
     align-items:center;
     justify-content:center;
+    text-align:center;
 
     background:
-    radial-gradient(
-        circle at center,
-        #6b8960,
-        #3d5e45 48%,
-        #1e382a 100%
-    );
+        radial-gradient(
+            circle,
+            #66865c 0%,
+            #3e6047 45%,
+            #203a2b 100%
+        );
 
     transition:
-    opacity 1.2s ease,
-    visibility 1.2s ease;
+        opacity 1.2s ease,
+        visibility 1.2s ease;
 }
 
 #opening.hide{
-
     opacity:0;
     visibility:hidden;
 }
 
 .opening-content{
-
     width:100%;
-
-    text-align:center;
 }
 
-
-/* SOBRE */
-
 .envelope{
-
-    position:relative;
-
     width:350px;
-
     max-width:88vw;
-
-    height:230px;
-
+    height:225px;
+    position:relative;
     margin:auto;
-
     cursor:pointer;
 
     filter:
-    drop-shadow(
-        0 25px 35px
-        rgba(0,0,0,.35)
-    );
-
-    perspective:1000px;
+        drop-shadow(
+            0 25px 35px
+            rgba(0,0,0,.35)
+        );
 }
 
 .envelope-back{
-
     position:absolute;
-
     inset:0;
 
     background:
-    linear-gradient(
-        145deg,
-        #fffdf5,
-        #e8dcb9
-    );
+        linear-gradient(
+            145deg,
+            #fffdf6,
+            #e8dcc0
+        );
 
     border:
-    1px solid
-    var(--dorado);
+        1px solid
+        var(--dorado);
 
     border-radius:8px;
 }
 
 .envelope-front{
-
     position:absolute;
-
     inset:0;
-
     overflow:hidden;
 }
 
 .envelope-front::before{
-
     content:"";
-
     position:absolute;
-
     bottom:0;
     left:0;
-
     width:0;
     height:0;
 
     border-left:
-    175px solid transparent;
+        175px solid transparent;
 
     border-right:
-    175px solid transparent;
+        175px solid transparent;
 
     border-bottom:
-    125px solid #e6dcc2;
+        125px solid #e7ddc4;
 }
 
 .flap{
-
     position:absolute;
-
     top:0;
     left:0;
-
     width:0;
     height:0;
 
     border-left:
-    175px solid transparent;
+        175px solid transparent;
 
     border-right:
-    175px solid transparent;
+        175px solid transparent;
 
     border-top:
-    125px solid #fff9e9;
+        125px solid #fffaf0;
 
     transform-origin:top center;
 
     transition:
-    transform 1s ease;
+        transform 1s ease;
 
     z-index:8;
 }
 
 .envelope.open .flap{
-
-    transform:
-    rotateX(180deg);
+    transform:rotateX(180deg);
 }
 
 .envelope-title{
-
     position:absolute;
-
     top:32px;
-
     width:100%;
 
-    text-align:center;
+    color:var(--verde);
 
-    color:var(--verde-oscuro);
-
-    font-size:19px;
-
+    font-size:18px;
     letter-spacing:5px;
-
-    z-index:5;
+    z-index:6;
 }
 
 .seal{
-
     position:absolute;
-
+    top:55%;
     left:50%;
-    top:54%;
 
     transform:
-    translate(-50%,-50%);
+        translate(-50%,-50%);
 
     width:72px;
     height:72px;
 
-    border-radius:50%;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
+
+    border-radius:50%;
 
     background:var(--verde);
 
     border:
-    3px solid
-    var(--dorado);
+        3px solid
+        var(--dorado2);
 
     color:white;
-
     font-size:31px;
-
     z-index:10;
-
-    transition:
-    transform .8s ease;
-}
-
-.envelope.open .seal{
-
-    transform:
-    translate(-50%,-50%)
-    scale(.8);
 }
 
 .open-text{
-
     margin-top:30px;
-
-    color:#fff5d3;
-
-    font-size:19px;
-
-    letter-spacing:2px;
-}
-
-.open-small{
-
-    margin-top:10px;
-
-    color:
-    rgba(255,255,255,.75);
-
-    font-family:Arial,sans-serif;
-
-    font-size:11px;
-
+    color:#f8edc4;
+    font-size:18px;
     letter-spacing:1px;
 }
 
+.open-small{
+    margin-top:10px;
+    color:rgba(255,255,255,.7);
 
-/* =========================================================
+    font-family:Arial,sans-serif;
+    font-size:11px;
+}
+
+
+/* =========================
    INVITACIÓN
-========================================================= */
+========================= */
 
 #invitation{
-
-    position:relative;
-
-    z-index:2;
-
     opacity:0;
-
-    transform:
-    translateY(30px);
+    transform:translateY(35px);
 
     transition:
-    opacity 1.2s ease,
-    transform 1.2s ease;
+        opacity 1.2s ease,
+        transform 1.2s ease;
 }
 
 #invitation.show{
-
     opacity:1;
-
     transform:translateY(0);
 }
 
 .paper{
-
-    width:
-    min(92%,880px);
-
+    width:min(900px,94%);
     margin:25px auto;
 
     background:var(--crema);
@@ -560,229 +277,174 @@ body.no-scroll{
     position:relative;
 
     box-shadow:
-    0 25px 70px
-    rgba(0,0,0,.3);
+        0 25px 70px
+        rgba(0,0,0,.35);
 
     overflow:hidden;
 }
 
 
-/* BORDES DORADOS */
+/* =========================
+   BORDES DORADOS
+========================= */
 
 .paper::before{
-
     content:"";
-
     position:absolute;
-
     inset:12px;
 
     border:
-    1px solid
-    rgba(185,148,78,.8);
+        1px solid
+        rgba(178,138,67,.9);
 
     pointer-events:none;
-
-    z-index:30;
+    z-index:20;
 }
 
 .paper::after{
-
     content:"";
-
     position:absolute;
-
     inset:19px;
 
     border:
-    1px solid
-    rgba(185,148,78,.35);
+        1px solid
+        rgba(178,138,67,.35);
 
     pointer-events:none;
-
-    z-index:30;
+    z-index:20;
 }
 
 
-/* =========================================================
-   DECORACIONES
-========================================================= */
-
-.flower-decoration{
-
-    position:absolute;
-
-    font-size:42px;
-
-    opacity:.65;
-
-    z-index:4;
-}
-
-.flower-top-left{
-    top:25px;
-    left:28px;
-}
-
-.flower-top-right{
-    top:25px;
-    right:28px;
-}
-
-.flower-bottom-left{
-    bottom:25px;
-    left:28px;
-}
-
-.flower-bottom-right{
-    bottom:25px;
-    right:28px;
-}
-
-
-/* =========================================================
+/* =========================
    PORTADA
-========================================================= */
+========================= */
 
 .cover{
+    min-height:920px;
 
-    min-height:900px;
-
-    padding:
-    90px 35px 70px;
+    position:relative;
 
     text-align:center;
 
-    position:relative;
+    padding:
+        80px 30px 70px;
 
     overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(218,232,191,.45),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            180deg,
+            #fcf8ed,
+            #f1ead8
+        );
 }
 
 .cover::before{
-
     content:"";
-
     position:absolute;
 
-    width:300px;
-    height:300px;
+    width:350px;
+    height:350px;
 
-    left:-140px;
-    top:260px;
+    left:-180px;
+    top:230px;
 
     border-radius:50%;
 
     background:
-    radial-gradient(
-        circle,
-        rgba(155,182,129,.25),
-        transparent 70%
-    );
+        radial-gradient(
+            circle,
+            rgba(83,119,80,.20),
+            transparent 70%
+        );
 }
 
 .cover::after{
-
     content:"";
-
     position:absolute;
 
-    width:300px;
-    height:300px;
+    width:350px;
+    height:350px;
 
-    right:-150px;
-    bottom:70px;
+    right:-180px;
+    bottom:40px;
 
     border-radius:50%;
 
     background:
-    radial-gradient(
-        circle,
-        rgba(185,148,78,.14),
-        transparent 70%
-    );
+        radial-gradient(
+            circle,
+            rgba(177,139,65,.12),
+            transparent 70%
+        );
 }
 
 .cover-content{
-
     position:relative;
-
     z-index:5;
 }
 
-.small-title{
-
-    font-size:12px;
-
+.mini-title{
+    font-size:11px;
     letter-spacing:4px;
-
-    color:#71806e;
+    color:#687765;
 }
 
 .lotus{
-
     margin:20px 0;
+    font-size:38px;
+}
 
-    color:#8ca473;
-
-    font-size:42px;
+.cover-subtitle{
+    font-style:italic;
+    font-size:23px;
+    color:#71806e;
 }
 
 .cover h1{
-
-    margin:5px 0;
+    margin-top:12px;
 
     font-size:
-    clamp(60px,12vw,105px);
+        clamp(65px,12vw,110px);
 
     font-weight:normal;
+    color:var(--verde);
 
     line-height:.9;
-
-    color:var(--verde-oscuro);
 }
 
 .xv{
-
     margin-top:18px;
 
-    font-size:21px;
-
+    font-size:18px;
     letter-spacing:7px;
-
-    color:#94763b;
+    color:#96783f;
 }
 
 .gold-line{
-
     width:140px;
-
     height:1px;
 
     background:var(--dorado);
 
-    margin:28px auto;
-}
-
-.cover-subtitle{
-
-    font-style:italic;
-
-    font-size:24px;
-
-    color:#71816e;
+    margin:25px auto;
 }
 
 
-/* =========================================================
-   FOTO PRINCIPAL PROVISIONAL
-========================================================= */
+/* =========================
+   FOTO DE TIANA
+========================= */
 
-.photo-placeholder{
-
-    width:330px;
-
-    max-width:80vw;
-
+.tiana-frame{
+    width:340px;
+    max-width:78vw;
     height:430px;
 
     margin:35px auto;
@@ -790,93 +452,69 @@ body.no-scroll{
     padding:7px;
 
     background:
-    linear-gradient(
-        135deg,
-        #b38d43,
-        #edd891,
-        #a77e34,
-        #ddc477
-    );
+        linear-gradient(
+            135deg,
+            #a97c32,
+            #ecd78e,
+            #b08a43,
+            #e6cf82
+        );
 
     box-shadow:
-    0 15px 35px
-    rgba(50,70,50,.2);
+        0 18px 35px
+        rgba(45,65,45,.25);
 }
 
-.photo-inner{
-
+.tiana-frame img{
     width:100%;
     height:100%;
 
-    display:flex;
+    object-fit:cover;
 
-    align-items:center;
-    justify-content:center;
-
-    flex-direction:column;
-
-    background:
-    linear-gradient(
-        145deg,
-        #cbd9b7,
-        #78916d
-    );
-
-    color:white;
-}
-
-.photo-symbol{
-
-    font-size:75px;
-}
-
-.photo-inner span{
-
-    margin-top:15px;
-
-    font-family:Arial,sans-serif;
-
-    font-size:10px;
-
-    letter-spacing:2px;
-
-    line-height:1.7;
+    display:block;
 }
 
 
-/* =========================================================
-   CUENTO
-========================================================= */
+/* =========================
+   FECHA
+========================= */
+
+.date{
+    color:var(--verde);
+
+    font-size:13px;
+    letter-spacing:4px;
+}
+
+
+/* =========================
+   HISTORIA
+========================= */
 
 .story{
-
-    padding:
-    85px 55px;
+    padding:90px 50px;
 
     text-align:center;
 
     background:
-    linear-gradient(
-        135deg,
-        #f8f3e7,
-        #eee8d7
-    );
+        linear-gradient(
+            135deg,
+            #fbf7ec,
+            #eee5d3
+        );
 }
 
-.story-title{
-
+.story h2{
     font-size:
-    clamp(32px,6vw,48px);
-
-    font-style:italic;
+        clamp(34px,6vw,48px);
 
     font-weight:normal;
+    font-style:italic;
 
-    color:var(--verde-oscuro);
+    color:var(--verde);
 }
 
 .story p{
-
     max-width:620px;
 
     margin:30px auto;
@@ -887,200 +525,164 @@ body.no-scroll{
 }
 
 .quote{
-
-    margin-top:30px;
-
     font-size:22px;
 
-    font-style:italic;
+    color:#957a42;
 
-    color:#8a7549;
+    font-style:italic;
 }
 
 
-/* =========================================================
-   FOTO + TEXTO
-========================================================= */
+/* =========================
+   TIANA + TEXTO
+========================= */
 
-.image-story{
-
-    min-height:620px;
-
+.magic-section{
     display:grid;
 
     grid-template-columns:
-    1fr 1fr;
+        1fr 1fr;
 
-    background:#f6f1e4;
+    min-height:600px;
 }
 
-.image-placeholder{
+.magic-image{
+    background:#263d2e;
 
-    min-height:620px;
+    position:relative;
+
+    overflow:hidden;
+}
+
+.magic-image::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
 
     background:
-    linear-gradient(
-        145deg,
-        #d8e1c8,
-        #79926d
-    );
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    color:white;
-
-    text-align:center;
-
-    font-family:Arial,sans-serif;
-
-    font-size:12px;
-
-    letter-spacing:2px;
-
-    line-height:1.7;
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(23,51,33,.35)
+        );
 }
 
-.image-text{
+.magic-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.magic-text{
+    padding:60px 45px;
 
     display:flex;
-
     flex-direction:column;
 
-    justify-content:center;
-
     align-items:center;
+    justify-content:center;
 
     text-align:center;
 
-    padding:50px;
+    background:#f3ead9;
 }
 
-.image-text .icon{
-
-    font-size:45px;
-
+.magic-text .frog{
+    font-size:48px;
     margin-bottom:20px;
 }
 
-.image-text h2{
+.magic-text h2{
+    font-size:38px;
 
     font-weight:normal;
 
-    font-size:35px;
-
-    color:var(--verde-oscuro);
+    color:var(--verde);
 }
 
-.image-text p{
-
+.magic-text p{
     margin-top:25px;
 
     line-height:1.9;
 }
 
 
-/* =========================================================
+/* =========================
    EVENTOS
-========================================================= */
+========================= */
 
 .events{
-
-    padding:
-    80px 40px;
-
+    padding:80px 35px;
     text-align:center;
 }
 
 .events h2{
+    font-size:38px;
 
     font-weight:normal;
 
-    font-size:38px;
-
-    color:var(--verde-oscuro);
+    color:var(--verde);
 }
 
-.event-grid{
-
-    max-width:720px;
+.events-grid{
+    max-width:700px;
 
     margin:
-    45px auto 0;
+        45px auto 0;
 
     display:grid;
 
     grid-template-columns:
-    repeat(2,1fr);
+        repeat(2,1fr);
 
-    gap:25px;
+    gap:22px;
 }
 
-.event-card{
+.card{
+    padding:40px 25px;
 
     background:#fffdf5;
 
     border:
-    1px solid
-    rgba(185,148,78,.55);
-
-    padding:
-    40px 25px;
-
-    position:relative;
+        1px solid
+        rgba(178,138,67,.6);
 
     box-shadow:
-    0 10px 25px
-    rgba(40,60,40,.08);
+        0 10px 25px
+        rgba(45,65,45,.08);
 }
 
-.event-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:7px;
-
-    border:
-    1px solid
-    rgba(185,148,78,.25);
+.card .icon{
+    font-size:40px;
 }
 
-.event-icon{
-
-    font-size:42px;
-}
-
-.event-card h3{
-
+.card h3{
     margin:15px 0;
+
+    color:var(--verde);
 
     font-size:25px;
 
     font-weight:normal;
-
-    color:var(--verde-oscuro);
 }
 
-.event-card p{
-
+.card p{
     line-height:1.8;
 }
 
 .map{
-
     display:inline-block;
 
     margin-top:20px;
 
     padding:
-    11px 25px;
+        11px 25px;
 
-    background:var(--verde-oscuro);
+    border-radius:30px;
+
+    background:var(--verde);
 
     color:white;
 
@@ -1088,74 +690,66 @@ body.no-scroll{
 
     font-family:Arial,sans-serif;
 
-    font-size:11px;
+    font-size:10px;
 
     letter-spacing:1px;
-
-    border-radius:20px;
 }
 
 
-/* =========================================================
+/* =========================
    CUENTA REGRESIVA
-========================================================= */
+========================= */
 
-.countdown-section{
-
-    padding:
-    80px 30px;
-
-    background:#e4ead7;
+.countdown{
+    padding:75px 25px;
 
     text-align:center;
+
+    background:#dfe8d4;
 }
 
-.countdown-section h2{
+.countdown h2{
+    font-size:35px;
 
     font-weight:normal;
 
-    font-size:35px;
-
-    color:var(--verde-oscuro);
+    color:var(--verde);
 }
 
-.countdown{
-
+.counter{
     max-width:650px;
 
-    margin:40px auto 0;
+    margin:
+        35px auto 0;
 
     display:grid;
 
     grid-template-columns:
-    repeat(4,1fr);
+        repeat(4,1fr);
 
     gap:12px;
 }
 
-.count{
-
+.number{
     padding:20px 5px;
 
     background:
-    rgba(255,255,255,.65);
+        rgba(255,255,255,.7);
 
     border:
-    1px solid
-    rgba(185,148,78,.4);
+        1px solid
+        rgba(178,138,67,.4);
 }
 
-.count strong{
-
+.number strong{
     display:block;
 
-    font-size:32px;
+    font-size:31px;
 
-    color:#64785e;
+    color:var(--verde2);
 }
 
-.count span{
-
+.number span{
     font-family:Arial,sans-serif;
 
     font-size:9px;
@@ -1164,244 +758,27 @@ body.no-scroll{
 }
 
 
-/* =========================================================
-   ITINERARIO
-========================================================= */
-
-.timeline-section{
-
-    padding:
-    80px 35px;
-
-    text-align:center;
-}
-
-.timeline-section h2{
-
-    font-size:36px;
-
-    font-weight:normal;
-
-    color:var(--verde-oscuro);
-}
-
-.timeline{
-
-    max-width:550px;
-
-    margin:45px auto;
-
-    position:relative;
-}
-
-.timeline::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-    top:0;
-    bottom:0;
-
-    width:1px;
-
-    background:var(--dorado);
-}
-
-.timeline-item{
-
-    position:relative;
-
-    display:grid;
-
-    grid-template-columns:
-    1fr 60px 1fr;
-
-    align-items:center;
-
-    min-height:85px;
-}
-
-.timeline-dot{
-
-    width:22px;
-    height:22px;
-
-    border-radius:50%;
-
-    background:var(--verde);
-
-    border:
-    4px solid
-    var(--crema);
-
-    box-shadow:
-    0 0 0 1px
-    var(--dorado);
-
-    margin:auto;
-
-    z-index:2;
-}
-
-.timeline-time{
-
-    text-align:right;
-
-    padding-right:20px;
-}
-
-.timeline-name{
-
-    text-align:left;
-
-    padding-left:20px;
-}
-
-.timeline-time strong{
-
-    color:#927841;
-}
-
-
-/* =========================================================
+/* =========================
    DRESS CODE
-========================================================= */
+========================= */
 
 .dress{
-
-    padding:
-    80px 30px;
-
-    background:#f1eadc;
+    padding:80px 30px;
 
     text-align:center;
+
+    background:#f1e8d7;
 }
 
 .dress h2{
-
     font-size:35px;
 
     font-weight:normal;
 
-    color:var(--verde-oscuro);
-}
-
-.dress-icon{
-
-    font-size:48px;
-
-    margin:20px;
+    color:var(--verde);
 }
 
 .dress p{
-
-    max-width:570px;
-
-    margin:auto;
-
-    line-height:1.9;
-}
-
-
-/* =========================================================
-   GALERÍA
-========================================================= */
-
-.gallery{
-
-    padding:
-    80px 30px;
-
-    text-align:center;
-}
-
-.gallery h2{
-
-    font-size:36px;
-
-    font-weight:normal;
-
-    color:var(--verde-oscuro);
-}
-
-.gallery-grid{
-
-    max-width:700px;
-
-    margin:40px auto;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:15px;
-}
-
-.gallery-photo{
-
-    height:330px;
-
-    background:
-    linear-gradient(
-        145deg,
-        #c9d8b8,
-        #728c68
-    );
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    color:white;
-
-    font-family:Arial,sans-serif;
-
-    font-size:10px;
-
-    letter-spacing:2px;
-}
-
-.gallery-photo:nth-child(2){
-
-    margin-top:50px;
-}
-
-.gallery-photo:nth-child(3){
-
-    margin-top:-50px;
-}
-
-
-/* =========================================================
-   REGALOS
-========================================================= */
-
-.gifts{
-
-    padding:
-    80px 30px;
-
-    text-align:center;
-
-    background:#e4ead7;
-}
-
-.gifts h2{
-
-    font-size:35px;
-
-    font-weight:normal;
-
-    color:var(--verde-oscuro);
-}
-
-.gifts p{
-
     max-width:570px;
 
     margin:25px auto;
@@ -1410,29 +787,54 @@ body.no-scroll{
 }
 
 
-/* =========================================================
+/* =========================
+   REGALOS
+========================= */
+
+.gifts{
+    padding:80px 30px;
+
+    text-align:center;
+
+    background:#e1e9d7;
+}
+
+.gifts h2{
+    font-size:35px;
+
+    font-weight:normal;
+
+    color:var(--verde);
+}
+
+.gifts p{
+    max-width:570px;
+
+    margin:25px auto;
+
+    line-height:1.9;
+}
+
+
+/* =========================
    CONFIRMACIÓN
-========================================================= */
+========================= */
 
 .confirm{
-
-    padding:
-    80px 30px;
+    padding:80px 30px;
 
     text-align:center;
 }
 
 .confirm h2{
-
     font-size:36px;
 
     font-weight:normal;
 
-    color:var(--verde-oscuro);
+    color:var(--verde);
 }
 
 .confirm p{
-
     max-width:570px;
 
     margin:25px auto;
@@ -1440,254 +842,186 @@ body.no-scroll{
     line-height:1.9;
 }
 
-.confirm-button{
-
+.whatsapp{
     display:inline-block;
 
     margin-top:20px;
 
     padding:
-    14px 30px;
+        14px 30px;
 
-    background:var(--verde-oscuro);
+    background:var(--verde);
 
     color:white;
 
     text-decoration:none;
 
-    border-radius:25px;
+    border-radius:30px;
 
     font-family:Arial,sans-serif;
 
-    font-size:11px;
+    font-size:10px;
 
     letter-spacing:1px;
 }
 
 
-/* =========================================================
+/* =========================
    FINAL
-========================================================= */
+========================= */
 
 .final{
-
     padding:
-    100px 30px;
+        100px 30px;
 
     text-align:center;
 
-    background:var(--verde-oscuro);
+    background:var(--verde);
 
     color:white;
 }
 
 .final .crown{
-
     font-size:50px;
-
-    color:#ead38e;
+    color:#e7d18b;
 }
 
 .final h2{
-
     margin-top:20px;
 
     font-size:
-    clamp(32px,6vw,50px);
+        clamp(32px,6vw,50px);
 
     font-weight:normal;
 
-    color:#f0dda0;
+    color:#ead68f;
 }
 
 .final p{
-
     margin-top:20px;
 
     line-height:1.8;
 }
 
 
-/* =========================================================
+/* =========================
    CELULAR
-========================================================= */
+========================= */
 
 @media(max-width:700px){
 
     .paper{
-
         width:96%;
-
-        margin:10px auto;
+        margin:8px auto;
     }
 
     .cover{
-
-        min-height:760px;
+        min-height:780px;
 
         padding:
-        80px 25px;
+            70px 20px;
     }
 
-    .photo-placeholder{
-
-        width:260px;
-
+    .tiana-frame{
+        width:270px;
         height:350px;
     }
 
     .story{
-
         padding:
-        65px 30px;
+            65px 28px;
     }
 
-    .image-story{
-
+    .magic-section{
         grid-template-columns:1fr;
     }
 
-    .image-placeholder{
-
-        min-height:430px;
+    .magic-image{
+        height:430px;
     }
 
-    .event-grid{
-
+    .events-grid{
         grid-template-columns:1fr;
     }
 
-    .countdown{
-
+    .counter{
         grid-template-columns:
-        repeat(2,1fr);
+            repeat(2,1fr);
     }
-
-    .gallery-grid{
-
-        grid-template-columns:1fr;
-    }
-
-    .gallery-photo,
-    .gallery-photo:nth-child(2),
-    .gallery-photo:nth-child(3){
-
-        margin:0;
-
-        height:400px;
-    }
-
-    .timeline-item{
-
-        grid-template-columns:
-        1fr 45px 1fr;
-    }
-
 }
 
 </style>
-
 </head>
 
 
-<body class="no-scroll">
+<body>
 
 
-<!-- =====================================================
-     FONDO
-===================================================== -->
+<!-- =========================
+     LUCIÉRNAGAS
+========================= -->
 
-<div class="magic-background">
-
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-    <div class="leaf"></div>
-
-</div>
-
-
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
+<div class="firefly f1"></div>
+<div class="firefly f2"></div>
+<div class="firefly f3"></div>
+<div class="firefly f4"></div>
+<div class="firefly f5"></div>
+<div class="firefly f6"></div>
+<div class="firefly f7"></div>
 
 
+<!-- =========================
+     MÚSICA
+========================= -->
 
-<!-- =====================================================
-     MÚSICA DE FONDO
-     
-     VIDEO ID:
-     kYPGwIy-mbI
+<audio
+    id="backgroundMusic"
+    loop
+    preload="auto">
 
-     NO HAY BOTÓN.
-===================================================== -->
+    <source
+        src="cancion.mp3"
+        type="audio/mpeg">
 
-<div id="musicPlayer">
-
-    <div id="youtubeAudio"></div>
-
-</div>
-
+</audio>
 
 
-<!-- =====================================================
+<!-- =========================
      SOBRE
-===================================================== -->
+========================= -->
 
 <section id="opening">
 
 <div class="opening-content">
-
 
 <div
     class="envelope"
     id="envelope"
     onclick="openInvitation()">
 
-
     <div class="envelope-back"></div>
 
-
     <div class="envelope-title">
-
         LEYDANI
-
     </div>
-
 
     <div class="envelope-front"></div>
 
-
     <div class="flap"></div>
 
-
     <div class="seal">
-
         🪷
-
     </div>
 
-
 </div>
-
 
 <div class="open-text">
-
     Una noche mágica está por comenzar
-
 </div>
-
 
 <div class="open-small">
-
     Toca el sobre para abrir la invitación
-
 </div>
-
 
 </div>
 
@@ -1695,108 +1029,64 @@ body.no-scroll{
 
 
 
-<!-- =====================================================
+<!-- =========================
      INVITACIÓN
-===================================================== -->
+========================= -->
 
 <main id="invitation">
-
 
 <div class="paper">
 
 
-<div class="flower-decoration flower-top-left">
-🌿🪷
-</div>
-
-<div class="flower-decoration flower-top-right">
-🪷🌿
-</div>
-
-
-
-<!-- =====================================================
+<!-- =========================
      PORTADA
-===================================================== -->
+========================= -->
 
 <section class="cover">
 
-
 <div class="cover-content">
 
-
-<div class="small-title">
-
-CON LA BENDICIÓN DE DIOS
-
+<div class="mini-title">
+    CON LA BENDICIÓN DE DIOS
 </div>
-
 
 <div class="lotus">
-
-🪷
-
+    ✦ 🪷 ✦
 </div>
-
 
 <div class="cover-subtitle">
-
-Una noche de magia, sueños y amor
-
+    Una noche de magia, sueños y amor
 </div>
-
 
 <h1>
-
-Leydani
-
+    Leydani
 </h1>
 
-
 <div class="xv">
-
-MIS XV AÑOS
-
+    MIS XV AÑOS
 </div>
-
 
 <div class="gold-line"></div>
 
 
+<!--
+=================================================
+    AQUÍ APARECE LA FOTO QUE SUBISTE
+=================================================
+-->
 
-<!-- FOTO PROVISIONAL -->
+<div class="tiana-frame">
 
-<div class="photo-placeholder">
-
-<div class="photo-inner">
-
-<div class="photo-symbol">
-
-🐸
-
-</div>
-
-<span>
-
-AQUÍ IRÁ LA FOTO DE LEYDANI
-
-<br>
-
-FOTO PROVISIONAL
-
-</span>
-
-</div>
+    <img
+        src="tiana.jpg"
+        alt="Tiana y el sapo">
 
 </div>
 
 
-<div class="small-title">
-
-05 · DICIEMBRE · 2026
-
+<div class="date">
+    05 · DICIEMBRE · 2026
 </div>
-
 
 </div>
 
@@ -1804,26 +1094,19 @@ FOTO PROVISIONAL
 
 
 
-<!-- =====================================================
-     CUENTO
-===================================================== -->
+<!-- =========================
+     HISTORIA
+========================= -->
 
 <section class="story">
 
-
 <div class="lotus">
-
-✦ 🪷 ✦
-
+    🪷 ✦ 🐸 ✦ 🪷
 </div>
 
-
-<h2 class="story-title">
-
-Érase una vez...
-
+<h2>
+    Érase una vez...
 </h2>
-
 
 <p>
 
@@ -1839,70 +1122,53 @@ a convertirse en realidad.
 <br><br>
 
 Hoy quiero compartir contigo una noche
-que marcará el comienzo de un nuevo
+muy especial: el comienzo de un nuevo
 capítulo de mi vida.
 
 </p>
 
-
 <div class="quote">
-
-“Y así comienza un nuevo capítulo...”
-
+    “Y así comienza un nuevo capítulo...”
 </div>
-
 
 </section>
 
 
 
-<!-- =====================================================
-     TIANA / FOTO TEMÁTICA
-===================================================== -->
+<!-- =========================
+     TIANA
+========================= -->
 
-<section class="image-story">
+<section class="magic-section">
 
+<div class="magic-image">
 
-<div class="image-placeholder">
-
-🌿 🪷 🐸
-
-<br><br>
-
-AQUÍ IRÁ UNA IMAGEN
-<br>
-DE TIANA O DEL SAPO
-
-<br><br>
-
-IMAGEN PROVISIONAL
+    <img
+        src="tiana.jpg"
+        alt="Tiana">
 
 </div>
 
+<div class="magic-text">
 
-<div class="image-text">
-
-
-<div class="icon">
-
-🐸
-
+<div class="frog">
+    🐸
 </div>
-
 
 <h2>
-
-Un cuento de hadas
-
+    Un cuento de hadas
 </h2>
-
 
 <p>
 
-Entre luciérnagas, nenúfares
-y sueños por cumplir,
-te invito a ser parte de
-mi noche más especial.
+Entre luciérnagas, nenúfares,
+estrellas y sueños por cumplir,
+
+<br><br>
+
+quiero que seas parte de una noche
+que guardaré para siempre
+en mi corazón.
 
 <br><br>
 
@@ -1911,6 +1177,9 @@ merecen celebrarse juntos.
 
 </p>
 
+<div class="lotus">
+    🪷
+</div>
 
 </div>
 
@@ -1918,49 +1187,35 @@ merecen celebrarse juntos.
 
 
 
-<!-- =====================================================
+<!-- =========================
      EVENTOS
-===================================================== -->
+========================= -->
 
 <section class="events">
 
-
 <h2>
-
-Los momentos de la noche
-
+    Los momentos de la noche
 </h2>
-
 
 <div class="gold-line"></div>
 
-
-<div class="event-grid">
-
-
-<div class="event-card">
+<div class="events-grid">
 
 
-<div class="event-icon">
+<div class="card">
 
-⛪
-
+<div class="icon">
+    ⛪
 </div>
 
-
 <h3>
-
-Ceremonia
-
+    Ceremonia
 </h3>
-
 
 <p>
 
 <strong>
-
-05 de diciembre de 2026
-
+    05 de diciembre de 2026
 </strong>
 
 <br><br>
@@ -1981,44 +1236,33 @@ PENDIENTE
 
 </p>
 
-
 <a
-href="https://www.google.com/maps"
-target="_blank"
-class="map">
+    href="https://www.google.com/maps"
+    target="_blank"
+    class="map">
 
-VER UBICACIÓN
+    VER UBICACIÓN
 
 </a>
 
-
 </div>
 
 
 
-<div class="event-card">
+<div class="card">
 
-
-<div class="event-icon">
-
-🥂
-
+<div class="icon">
+    🥂
 </div>
-
 
 <h3>
-
-Recepción
-
+    Recepción
 </h3>
-
 
 <p>
 
 <strong>
-
-05 de diciembre de 2026
-
+    05 de diciembre de 2026
 </strong>
 
 <br><br>
@@ -2039,19 +1283,16 @@ PENDIENTE
 
 </p>
 
-
 <a
-href="https://www.google.com/maps"
-target="_blank"
-class="map">
+    href="https://www.google.com/maps"
+    target="_blank"
+    class="map">
 
-VER UBICACIÓN
+    VER UBICACIÓN
 
 </a>
 
-
 </div>
-
 
 </div>
 
@@ -2059,183 +1300,70 @@ VER UBICACIÓN
 
 
 
-<!-- =====================================================
+<!-- =========================
      CUENTA REGRESIVA
-===================================================== -->
+========================= -->
 
-<section class="countdown-section">
-
+<section class="countdown">
 
 <h2>
-
-Falta poco para nuestro gran día
-
+    Falta poco para nuestro gran día
 </h2>
-
 
 <div class="gold-line"></div>
 
+<div class="counter">
 
-<div class="countdown">
+<div class="number">
 
+<strong id="days">
+    0
+</strong>
 
-<div class="count">
-
-<strong id="days">0</strong>
-
-<span>DÍAS</span>
-
-</div>
-
-
-<div class="count">
-
-<strong id="hours">0</strong>
-
-<span>HORAS</span>
+<span>
+    DÍAS
+</span>
 
 </div>
 
 
-<div class="count">
+<div class="number">
 
-<strong id="minutes">0</strong>
+<strong id="hours">
+    0
+</strong>
 
-<span>MINUTOS</span>
-
-</div>
-
-
-<div class="count">
-
-<strong id="seconds">0</strong>
-
-<span>SEGUNDOS</span>
+<span>
+    HORAS
+</span>
 
 </div>
 
 
-</div>
+<div class="number">
 
+<strong id="minutes">
+    0
+</strong>
 
-</section>
-
-
-
-<!-- =====================================================
-     ITINERARIO
-===================================================== -->
-
-<section class="timeline-section">
-
-
-<h2>
-
-Itinerario
-
-</h2>
-
-
-<div class="gold-line"></div>
-
-
-<div class="timeline">
-
-
-<div class="timeline-item">
-
-<div class="timeline-time">
-
-<strong>PENDIENTE</strong>
-
-</div>
-
-<div class="timeline-dot"></div>
-
-<div class="timeline-name">
-
-Llegada
-
-</div>
+<span>
+    MINUTOS
+</span>
 
 </div>
 
 
-<div class="timeline-item">
+<div class="number">
 
-<div class="timeline-time">
+<strong id="seconds">
+    0
+</strong>
 
-<strong>PENDIENTE</strong>
-
-</div>
-
-<div class="timeline-dot"></div>
-
-<div class="timeline-name">
-
-Ceremonia
+<span>
+    SEGUNDOS
+</span>
 
 </div>
-
-</div>
-
-
-<div class="timeline-item">
-
-<div class="timeline-time">
-
-<strong>PENDIENTE</strong>
-
-</div>
-
-<div class="timeline-dot"></div>
-
-<div class="timeline-name">
-
-Sesión de fotos
-
-</div>
-
-</div>
-
-
-<div class="timeline-item">
-
-<div class="timeline-time">
-
-<strong>PENDIENTE</strong>
-
-</div>
-
-<div class="timeline-dot"></div>
-
-<div class="timeline-name">
-
-Recepción
-
-</div>
-
-</div>
-
-
-<div class="timeline-item">
-
-<div class="timeline-time">
-
-<strong>PENDIENTE</strong>
-
-</div>
-
-<div class="timeline-dot"></div>
-
-<div class="timeline-name">
-
-¡A celebrar!
-
-</div>
-
-</div>
-
 
 </div>
 
@@ -2243,36 +1371,26 @@ Recepción
 
 
 
-<!-- =====================================================
+<!-- =========================
      DRESS CODE
-===================================================== -->
+========================= -->
 
 <section class="dress">
 
-
-<div class="dress-icon">
-
-👗
-
+<div class="lotus">
+    👑
 </div>
 
-
 <h2>
-
-Código de vestimenta
-
+    Código de vestimenta
 </h2>
 
-
 <div class="gold-line"></div>
-
 
 <p>
 
 <strong>
-
-ELEGANTE
-
+    ELEGANTE
 </strong>
 
 <br><br>
@@ -2283,85 +1401,29 @@ de manera elegante para esta noche.
 <br><br>
 
 El color verde queda reservado
-para la quinceañera. 💚
+para la quinceañera.
 
 </p>
 
-
 </section>
 
 
 
-<!-- =====================================================
-     GALERÍA
-===================================================== -->
-
-<section class="gallery">
-
-
-<h2>
-
-Momentos de mi historia
-
-</h2>
-
-
-<div class="gold-line"></div>
-
-
-<div class="gallery-grid">
-
-
-<div class="gallery-photo">
-FOTO 01
-</div>
-
-
-<div class="gallery-photo">
-FOTO 02
-</div>
-
-
-<div class="gallery-photo">
-FOTO 03
-</div>
-
-
-<div class="gallery-photo">
-FOTO 04
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- =====================================================
+<!-- =========================
      REGALOS
-===================================================== -->
+========================= -->
 
 <section class="gifts">
 
-
-<h2>
-
-Lluvia de regalos
-
-</h2>
-
-
-<div class="gold-line"></div>
-
-
-<div style="font-size:45px;margin:25px;">
-
-🎁
-
+<div class="lotus">
+    🎁
 </div>
 
+<h2>
+    Lluvia de regalos
+</h2>
+
+<div class="gold-line"></div>
 
 <p>
 
@@ -2370,48 +1432,36 @@ es el mejor regalo.
 
 <br><br>
 
-Si deseas obsequiarme algo,
-puedes hacerlo de la manera
-que tu corazón elija.
+Si deseas obsequiarme algún detalle,
+será recibido con mucho cariño.
 
 <br><br>
 
 <strong>
-
-DATOS PENDIENTES
-
+    DATOS PENDIENTES
 </strong>
 
 </p>
-
 
 </section>
 
 
 
-<!-- =====================================================
+<!-- =========================
      CONFIRMACIÓN
-===================================================== -->
+========================= -->
 
 <section class="confirm">
 
-
 <div class="lotus">
-
-🪷
-
+    🪷
 </div>
 
-
 <h2>
-
-Confirma tu asistencia
-
+    Confirma tu asistencia
 </h2>
 
-
 <div class="gold-line"></div>
-
 
 <p>
 
@@ -2426,49 +1476,38 @@ antes de:
 <br><br>
 
 <strong>
-
-FECHA PENDIENTE
-
+    FECHA PENDIENTE
 </strong>
 
 </p>
 
-
 <a
-href="#"
-class="confirm-button"
-onclick="confirmAttendance(event)">
+    href="#"
+    class="whatsapp"
+    onclick="confirmar(event)">
 
-CONFIRMAR ASISTENCIA
+    CONFIRMAR ASISTENCIA
 
 </a>
-
 
 </section>
 
 
 
-<!-- =====================================================
+<!-- =========================
      FINAL
-===================================================== -->
+========================= -->
 
 <section class="final">
 
-
 <div class="crown">
-
-♕
-
+    ♕
 </div>
 
-
 <h2>
-
-Gracias por ser parte
-de mi cuento
-
+    Gracias por ser parte
+    de mi cuento
 </h2>
-
 
 <p>
 
@@ -2481,7 +1520,6 @@ para siempre en el corazón.
 
 </p>
 
-
 <p>
 
 Con cariño,
@@ -2489,278 +1527,179 @@ Con cariño,
 <br><br>
 
 <strong>
-
-LEYDANI TROCHE
-
+    LEYDANI TROCHE
 </strong>
 
 </p>
 
-
 <p>
-
-05 · 12 · 2026
-
+    05 · 12 · 2026
 </p>
 
-
-<p style="font-size:25px;margin-top:30px;">
-
-🪷 ✦ 🐸 ✦ 🪷
-
+<p style="font-size:25px;">
+    🪷 ✦ 🐸 ✦ 🪷
 </p>
-
 
 </section>
 
 
 </div>
-
 </main>
 
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
 
-/* =========================================================
-   VARIABLES DE YOUTUBE
-========================================================= */
-
-let youtubePlayer = null;
-
-let musicReady = false;
-
-let waitingForMusic = false;
-
-
-/* =========================================================
-   CARGAR API DE YOUTUBE
-========================================================= */
-
-function loadYouTubeAPI(){
-
-    const tag =
-    document.createElement("script");
-
-    tag.src =
-    "https://www.youtube.com/iframe_api";
-
-    const firstScript =
-    document.getElementsByTagName("script")[0];
-
-    firstScript.parentNode.insertBefore(
-        tag,
-        firstScript
-    );
-
-}
-
-
-/* =========================================================
-   CREAR REPRODUCTOR
-========================================================= */
-
-function onYouTubeIframeAPIReady(){
-
-    youtubePlayer =
-    new YT.Player(
-        "youtubeAudio",
-        {
-
-            height:"1",
-
-            width:"1",
-
-            videoId:"kYPGwIy-mbI",
-
-            playerVars:{
-
-                autoplay:0,
-
-                controls:0,
-
-                disablekb:1,
-
-                fs:0,
-
-                playsinline:1,
-
-                rel:0,
-
-                modestbranding:1,
-
-                loop:1,
-
-                playlist:"kYPGwIy-mbI"
-
-            },
-
-            events:{
-
-                onReady:function(){
-
-                    musicReady=true;
-
-                    youtubePlayer.setVolume(45);
-
-                    if(waitingForMusic){
-
-                        youtubePlayer.playVideo();
-
-                    }
-
-                }
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   INICIAR API
-========================================================= */
-
-loadYouTubeAPI();
-
-
-/* =========================================================
+/* =========================
    ABRIR INVITACIÓN
-========================================================= */
+========================= */
 
 function openInvitation(){
 
     const envelope =
-    document.getElementById("envelope");
-
-    const opening =
-    document.getElementById("opening");
-
-    const invitation =
-    document.getElementById("invitation");
-
-
-    /* Abrir sobre */
-
-    envelope.classList.add("open");
-
-
-    /* Intentar iniciar música */
-
-    waitingForMusic=true;
-
-
-    if(
-        musicReady &&
-        youtubePlayer
-    ){
-
-        youtubePlayer.setVolume(45);
-
-        youtubePlayer.playVideo();
-
-    }
-
-
-    /* Mostrar invitación */
-
-    setTimeout(function(){
-
-        opening.classList.add("hide");
-
-        document.body.classList.remove(
-            "no-scroll"
+        document.getElementById(
+            "envelope"
         );
 
-        invitation.classList.add("show");
+    const opening =
+        document.getElementById(
+            "opening"
+        );
 
-    },900);
+    const invitation =
+        document.getElementById(
+            "invitation"
+        );
+
+    const music =
+        document.getElementById(
+            "backgroundMusic"
+        );
+
+
+    envelope.classList.add(
+        "open"
+    );
+
+
+    music.volume = 0.45;
+
+
+    music.play().catch(
+        function(){
+
+            console.log(
+                "La canción todavía no está subida."
+            );
+
+        }
+    );
+
+
+    setTimeout(
+        function(){
+
+            opening.classList.add(
+                "hide"
+            );
+
+            invitation.classList.add(
+                "show"
+            );
+
+        },
+        900
+    );
 
 }
 
 
-/* =========================================================
+/* =========================
    CUENTA REGRESIVA
-========================================================= */
+========================= */
 
 const eventDate =
-new Date(
-    "December 5, 2026 19:00:00"
-).getTime();
+    new Date(
+        "December 5, 2026 19:00:00"
+    ).getTime();
 
 
 function countdown(){
 
     const now =
-    new Date().getTime();
+        new Date().getTime();
 
     const difference =
-    eventDate-now;
+        eventDate - now;
 
 
-    if(difference<=0){
+    if(difference <= 0){
 
-        document.getElementById("days")
-        .textContent="0";
+        document.getElementById(
+            "days"
+        ).textContent = "0";
 
-        document.getElementById("hours")
-        .textContent="0";
+        document.getElementById(
+            "hours"
+        ).textContent = "0";
 
-        document.getElementById("minutes")
-        .textContent="0";
+        document.getElementById(
+            "minutes"
+        ).textContent = "0";
 
-        document.getElementById("seconds")
-        .textContent="0";
+        document.getElementById(
+            "seconds"
+        ).textContent = "0";
 
         return;
-
     }
 
 
     const days =
-    Math.floor(
-        difference/
-        (1000*60*60*24)
-    );
+        Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
+        );
 
 
     const hours =
-    Math.floor(
-        (difference/
-        (1000*60*60))%24
-    );
+        Math.floor(
+            (difference /
+            (1000 * 60 * 60)) % 24
+        );
 
 
     const minutes =
-    Math.floor(
-        (difference/
-        (1000*60))%60
-    );
+        Math.floor(
+            (difference /
+            (1000 * 60)) % 60
+        );
 
 
     const seconds =
-    Math.floor(
-        (difference/1000)%60
-    );
+        Math.floor(
+            (difference / 1000) % 60
+        );
 
 
-    document.getElementById("days")
-    .textContent=days;
+    document.getElementById(
+        "days"
+    ).textContent = days;
 
-    document.getElementById("hours")
-    .textContent=hours;
 
-    document.getElementById("minutes")
-    .textContent=minutes;
+    document.getElementById(
+        "hours"
+    ).textContent = hours;
 
-    document.getElementById("seconds")
-    .textContent=seconds;
+
+    document.getElementById(
+        "minutes"
+    ).textContent = minutes;
+
+
+    document.getElementById(
+        "seconds"
+    ).textContent = seconds;
 
 }
 
@@ -2773,23 +1712,21 @@ setInterval(
 );
 
 
-/* =========================================================
-   CONFIRMACIÓN PROVISIONAL
-========================================================= */
+/* =========================
+   WHATSAPP PROVISIONAL
+========================= */
 
-function confirmAttendance(event){
+function confirmar(event){
 
     event.preventDefault();
 
     alert(
-        "Aquí colocaremos posteriormente el WhatsApp para confirmar la asistencia."
+        "Aquí colocaremos el número de WhatsApp de confirmación."
     );
 
 }
 
 </script>
 
-
 </body>
-
 </html>
