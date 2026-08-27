@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#294936">
 
 <title>XV Años | Leydani Troche</title>
 
 <style>
 
-/* ==============================
-   COLORES
-================================ */
+/* =========================================================
+   XV LEYDANI
+   LA PRINCESA Y EL SAPO
+   CUENTO DE HADAS
+========================================================= */
 
 :root{
-    --verde:#35583f;
-    --verde-claro:#6f8c68;
-    --crema:#fbf7ec;
-    --papel:#f2ead8;
-    --dorado:#b99550;
-    --dorado-claro:#e2cd91;
+    --verde-oscuro:#294936;
+    --verde:#4f7055;
+    --verde-claro:#a9c18f;
+
+    --crema:#fbf7eb;
+    --crema-2:#f1ead8;
+
+    --dorado:#b9944e;
+    --dorado-claro:#dfca88;
+
     --texto:#526052;
 }
 
 
-/* ==============================
+/* =========================================================
    GENERAL
-================================ */
+========================================================= */
 
 *{
     margin:0;
@@ -38,29 +50,142 @@ html{
 }
 
 body{
-    background:
-        radial-gradient(
-            circle at top,
-            #6d8964,
-            #294533
-        );
+
+    margin:0;
+
+    font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
     color:var(--texto);
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    background:
+    linear-gradient(
+        135deg,
+        #223b2c,
+        #4e704f,
+        #294534
+    );
 
     overflow-x:hidden;
 }
 
+body.no-scroll{
+    overflow:hidden;
+}
 
-/* ==============================
+
+/* =========================================================
+   FONDO MÁGICO
+========================================================= */
+
+.magic-background{
+
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:0;
+}
+
+.magic-background::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:550px;
+    height:550px;
+
+    left:-220px;
+    top:15%;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(220,235,188,.18),
+        transparent 70%
+    );
+}
+
+.magic-background::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    right:-280px;
+    bottom:-200px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(229,211,145,.15),
+        transparent 70%
+    );
+}
+
+
+/* =========================================================
+   HOJAS DECORATIVAS
+========================================================= */
+
+.leaf{
+
+    position:absolute;
+
+    width:140px;
+    height:65px;
+
+    border-radius:
+    100% 0 100% 0;
+
+    background:
+    rgba(224,238,199,.10);
+
+    transform:rotate(35deg);
+}
+
+.leaf:nth-child(1){
+    left:-50px;
+    top:18%;
+}
+
+.leaf:nth-child(2){
+    right:-60px;
+    top:42%;
+    transform:rotate(210deg);
+}
+
+.leaf:nth-child(3){
+    left:15%;
+    bottom:-30px;
+}
+
+.leaf:nth-child(4){
+    right:10%;
+    top:10%;
+    transform:rotate(130deg);
+}
+
+
+/* =========================================================
    LUCIÉRNAGAS
-================================ */
+========================================================= */
 
 .firefly{
+
     position:fixed;
 
     width:5px;
@@ -68,82 +193,96 @@ body{
 
     border-radius:50%;
 
-    background:#f5e9a9;
+    background:#f6e9a7;
 
     box-shadow:
-        0 0 8px #fff7bd,
-        0 0 18px #dceaa5;
-
-    pointer-events:none;
-
-    z-index:50;
+    0 0 8px #fff2aa,
+    0 0 18px #e9d06b;
 
     animation:
-        fireflyMove 5s
-        infinite
-        ease-in-out;
+    fly 6s infinite ease-in-out;
+
+    z-index:5;
 }
 
-.f1{
+.firefly:nth-child(1){
     left:8%;
     top:20%;
 }
 
-.f2{
-    left:18%;
-    top:65%;
+.firefly:nth-child(2){
+    left:20%;
+    top:60%;
     animation-delay:1s;
 }
 
-.f3{
-    left:33%;
-    top:35%;
+.firefly:nth-child(3){
+    left:35%;
+    top:30%;
     animation-delay:2s;
 }
 
-.f4{
+.firefly:nth-child(4){
     left:50%;
     top:75%;
     animation-delay:3s;
 }
 
-.f5{
+.firefly:nth-child(5){
     left:68%;
-    top:18%;
+    top:20%;
     animation-delay:1.5s;
 }
 
-.f6{
-    left:82%;
-    top:48%;
+.firefly:nth-child(6){
+    left:80%;
+    top:55%;
     animation-delay:2.5s;
 }
 
-.f7{
-    left:92%;
-    top:78%;
+.firefly:nth-child(7){
+    left:90%;
+    top:30%;
     animation-delay:4s;
 }
 
-@keyframes fireflyMove{
+@keyframes fly{
 
     0%,100%{
         opacity:.15;
-        transform:
-            translate(0,0);
+        transform:translate(0,0);
     }
 
     50%{
         opacity:1;
-        transform:
-            translate(20px,-25px);
+        transform:translate(20px,-25px);
     }
 }
 
 
-/* ==============================
+/* =========================================================
+   REPRODUCTOR DE YOUTUBE OCULTO
+========================================================= */
+
+#musicPlayer{
+
+    position:fixed;
+
+    width:1px;
+    height:1px;
+
+    left:-100px;
+    top:-100px;
+
+    opacity:0;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
    SOBRE
-================================ */
+========================================================= */
 
 #opening{
 
@@ -151,39 +290,37 @@ body{
 
     inset:0;
 
-    z-index:1000;
+    z-index:9999;
 
     display:flex;
 
+    align-items:center;
     justify-content:center;
 
-    align-items:center;
-
-    text-align:center;
-
     background:
-        radial-gradient(
-            circle,
-            #66845e 0%,
-            #3c5e45 45%,
-            #1f392a 100%
-        );
+    radial-gradient(
+        circle at center,
+        #6b8960,
+        #3d5e45 48%,
+        #1e382a 100%
+    );
 
     transition:
-        opacity 1.2s ease,
-        visibility 1.2s ease;
+    opacity 1.2s ease,
+    visibility 1.2s ease;
 }
 
 #opening.hide{
 
     opacity:0;
-
     visibility:hidden;
 }
 
 .opening-content{
 
     width:100%;
+
+    text-align:center;
 }
 
 
@@ -191,23 +328,25 @@ body{
 
 .envelope{
 
+    position:relative;
+
     width:350px;
 
     max-width:88vw;
 
-    height:225px;
+    height:230px;
 
     margin:auto;
-
-    position:relative;
 
     cursor:pointer;
 
     filter:
-        drop-shadow(
-            0 25px 35px
-            rgba(0,0,0,.35)
-        );
+    drop-shadow(
+        0 25px 35px
+        rgba(0,0,0,.35)
+    );
+
+    perspective:1000px;
 }
 
 .envelope-back{
@@ -217,15 +356,15 @@ body{
     inset:0;
 
     background:
-        linear-gradient(
-            145deg,
-            #fffdf7,
-            #e9dec4
-        );
+    linear-gradient(
+        145deg,
+        #fffdf5,
+        #e8dcb9
+    );
 
     border:
-        1px solid
-        var(--dorado);
+    1px solid
+    var(--dorado);
 
     border-radius:8px;
 }
@@ -246,21 +385,19 @@ body{
     position:absolute;
 
     bottom:0;
-
     left:0;
 
     width:0;
-
     height:0;
 
     border-left:
-        175px solid transparent;
+    175px solid transparent;
 
     border-right:
-        175px solid transparent;
+    175px solid transparent;
 
     border-bottom:
-        125px solid #e7ddc4;
+    125px solid #e6dcc2;
 }
 
 .flap{
@@ -268,27 +405,24 @@ body{
     position:absolute;
 
     top:0;
-
     left:0;
 
     width:0;
-
     height:0;
 
     border-left:
-        175px solid transparent;
+    175px solid transparent;
 
     border-right:
-        175px solid transparent;
+    175px solid transparent;
 
     border-top:
-        125px solid #fffaf0;
+    125px solid #fff9e9;
 
-    transform-origin:
-        top center;
+    transform-origin:top center;
 
     transition:
-        transform 1s ease;
+    transform 1s ease;
 
     z-index:8;
 }
@@ -296,7 +430,7 @@ body{
 .envelope.open .flap{
 
     transform:
-        rotateX(180deg);
+    rotateX(180deg);
 }
 
 .envelope-title{
@@ -307,60 +441,69 @@ body{
 
     width:100%;
 
-    color:var(--verde);
+    text-align:center;
 
-    font-size:18px;
+    color:var(--verde-oscuro);
+
+    font-size:19px;
 
     letter-spacing:5px;
 
-    z-index:6;
+    z-index:5;
 }
 
 .seal{
 
     position:absolute;
 
-    top:55%;
-
     left:50%;
+    top:54%;
 
     transform:
-        translate(-50%,-50%);
+    translate(-50%,-50%);
 
     width:72px;
-
     height:72px;
+
+    border-radius:50%;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
-
-    border-radius:50%;
 
     background:var(--verde);
 
     border:
-        3px solid
-        var(--dorado-claro);
+    3px solid
+    var(--dorado);
 
     color:white;
 
-    font-size:30px;
+    font-size:31px;
 
     z-index:10;
+
+    transition:
+    transform .8s ease;
+}
+
+.envelope.open .seal{
+
+    transform:
+    translate(-50%,-50%)
+    scale(.8);
 }
 
 .open-text{
 
     margin-top:30px;
 
-    color:#f8edc4;
+    color:#fff5d3;
 
-    font-size:18px;
+    font-size:19px;
 
-    letter-spacing:1px;
+    letter-spacing:2px;
 }
 
 .open-small{
@@ -368,41 +511,47 @@ body{
     margin-top:10px;
 
     color:
-        rgba(255,255,255,.7);
+    rgba(255,255,255,.75);
 
     font-family:Arial,sans-serif;
 
     font-size:11px;
+
+    letter-spacing:1px;
 }
 
 
-/* ==============================
+/* =========================================================
    INVITACIÓN
-================================ */
+========================================================= */
 
 #invitation{
+
+    position:relative;
+
+    z-index:2;
 
     opacity:0;
 
     transform:
-        translateY(35px);
+    translateY(30px);
 
     transition:
-        opacity 1.2s ease,
-        transform 1.2s ease;
+    opacity 1.2s ease,
+    transform 1.2s ease;
 }
 
 #invitation.show{
 
     opacity:1;
 
-    transform:
-        translateY(0);
+    transform:translateY(0);
 }
 
 .paper{
 
-    width:min(900px,94%);
+    width:
+    min(92%,880px);
 
     margin:25px auto;
 
@@ -410,15 +559,15 @@ body{
 
     position:relative;
 
-    overflow:hidden;
-
     box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.35);
+    0 25px 70px
+    rgba(0,0,0,.3);
+
+    overflow:hidden;
 }
 
 
-/* BORDES */
+/* BORDES DORADOS */
 
 .paper::before{
 
@@ -429,12 +578,12 @@ body{
     inset:12px;
 
     border:
-        1px solid
-        rgba(185,149,80,.9);
+    1px solid
+    rgba(185,148,78,.8);
 
     pointer-events:none;
 
-    z-index:20;
+    z-index:30;
 }
 
 .paper::after{
@@ -446,45 +595,111 @@ body{
     inset:19px;
 
     border:
-        1px solid
-        rgba(185,149,80,.35);
+    1px solid
+    rgba(185,148,78,.35);
 
     pointer-events:none;
 
-    z-index:20;
+    z-index:30;
 }
 
 
-/* ==============================
+/* =========================================================
+   DECORACIONES
+========================================================= */
+
+.flower-decoration{
+
+    position:absolute;
+
+    font-size:42px;
+
+    opacity:.65;
+
+    z-index:4;
+}
+
+.flower-top-left{
+    top:25px;
+    left:28px;
+}
+
+.flower-top-right{
+    top:25px;
+    right:28px;
+}
+
+.flower-bottom-left{
+    bottom:25px;
+    left:28px;
+}
+
+.flower-bottom-right{
+    bottom:25px;
+    right:28px;
+}
+
+
+/* =========================================================
    PORTADA
-================================ */
+========================================================= */
 
 .cover{
 
     min-height:900px;
 
-    position:relative;
+    padding:
+    90px 35px 70px;
 
     text-align:center;
 
-    padding:
-        80px 30px 70px;
-
-    background:
-
-        radial-gradient(
-            circle at center,
-            rgba(214,229,191,.5),
-            transparent 40%
-        ),
-
-        linear-gradient(
-            180deg,
-            #fffdf5,
-            #f0e7d4
-        );
+    position:relative;
 
     overflow:hidden;
+}
+
+.cover::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    left:-140px;
+    top:260px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(155,182,129,.25),
+        transparent 70%
+    );
+}
+
+.cover::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    right:-150px;
+    bottom:70px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(185,148,78,.14),
+        transparent 70%
+    );
 }
 
 .cover-content{
@@ -494,54 +709,47 @@ body{
     z-index:5;
 }
 
-.mini-title{
+.small-title{
 
-    font-size:11px;
+    font-size:12px;
 
     letter-spacing:4px;
 
-    color:#687765;
+    color:#71806e;
 }
 
 .lotus{
 
     margin:20px 0;
 
-    font-size:32px;
-}
+    color:#8ca473;
 
-.cover-subtitle{
-
-    font-size:22px;
-
-    font-style:italic;
-
-    color:#71806e;
+    font-size:42px;
 }
 
 .cover h1{
 
-    margin-top:12px;
+    margin:5px 0;
 
     font-size:
-        clamp(65px,12vw,110px);
+    clamp(60px,12vw,105px);
 
     font-weight:normal;
 
     line-height:.9;
 
-    color:var(--verde);
+    color:var(--verde-oscuro);
 }
 
 .xv{
 
     margin-top:18px;
 
-    font-size:18px;
+    font-size:21px;
 
     letter-spacing:7px;
 
-    color:#96783f;
+    color:#94763b;
 }
 
 .gold-line{
@@ -550,21 +758,30 @@ body{
 
     height:1px;
 
-    margin:25px auto;
-
     background:var(--dorado);
+
+    margin:28px auto;
+}
+
+.cover-subtitle{
+
+    font-style:italic;
+
+    font-size:24px;
+
+    color:#71816e;
 }
 
 
-/* ==============================
-   FOTO DE TIANA
-================================ */
+/* =========================================================
+   FOTO PRINCIPAL PROVISIONAL
+========================================================= */
 
-.tiana-frame{
+.photo-placeholder{
 
-    width:340px;
+    width:330px;
 
-    max-width:78vw;
+    max-width:80vw;
 
     height:430px;
 
@@ -573,71 +790,89 @@ body{
     padding:7px;
 
     background:
-        linear-gradient(
-            135deg,
-            #a97c32,
-            #ecd78e,
-            #b08a43,
-            #e6cf82
-        );
+    linear-gradient(
+        135deg,
+        #b38d43,
+        #edd891,
+        #a77e34,
+        #ddc477
+    );
 
     box-shadow:
-        0 18px 35px
-        rgba(45,65,45,.25);
+    0 15px 35px
+    rgba(50,70,50,.2);
 }
 
-.tiana-frame img{
+.photo-inner{
 
     width:100%;
-
     height:100%;
 
-    object-fit:contain;
+    display:flex;
 
-    display:block;
+    align-items:center;
+    justify-content:center;
 
-    background:#f3ead7;
+    flex-direction:column;
+
+    background:
+    linear-gradient(
+        145deg,
+        #cbd9b7,
+        #78916d
+    );
+
+    color:white;
 }
 
-.date{
+.photo-symbol{
 
-    color:var(--verde);
+    font-size:75px;
+}
 
-    font-size:13px;
+.photo-inner span{
 
-    letter-spacing:4px;
+    margin-top:15px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    line-height:1.7;
 }
 
 
-/* ==============================
-   HISTORIA
-================================ */
+/* =========================================================
+   CUENTO
+========================================================= */
 
 .story{
 
     padding:
-        90px 50px;
+    85px 55px;
 
     text-align:center;
 
     background:
-        linear-gradient(
-            135deg,
-            #fbf7ec,
-            #eee5d3
-        );
+    linear-gradient(
+        135deg,
+        #f8f3e7,
+        #eee8d7
+    );
 }
 
-.story h2{
+.story-title{
 
     font-size:
-        clamp(34px,6vw,48px);
-
-    font-weight:normal;
+    clamp(32px,6vw,48px);
 
     font-style:italic;
 
-    color:var(--verde);
+    font-weight:normal;
+
+    color:var(--verde-oscuro);
 }
 
 .story p{
@@ -653,89 +888,94 @@ body{
 
 .quote{
 
+    margin-top:30px;
+
     font-size:22px;
 
-    color:#957a42;
-
     font-style:italic;
+
+    color:#8a7549;
 }
 
 
-/* ==============================
-   SECCIÓN MÁGICA
-================================ */
+/* =========================================================
+   FOTO + TEXTO
+========================================================= */
 
-.magic-section{
+.image-story{
+
+    min-height:620px;
 
     display:grid;
 
     grid-template-columns:
-        1fr 1fr;
+    1fr 1fr;
 
-    min-height:600px;
+    background:#f6f1e4;
 }
 
-.magic-image{
+.image-placeholder{
 
-    position:relative;
+    min-height:620px;
 
-    width:100%;
-
-    height:600px;
-
-    overflow:hidden;
-
-    background:#f3ead7;
-}
-
-.magic-image img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:contain;
-
-    display:block;
-
-    background:#f3ead7;
-}
-
-.magic-text{
-
-    padding:
-        60px 45px;
+    background:
+    linear-gradient(
+        145deg,
+        #d8e1c8,
+        #79926d
+    );
 
     display:flex;
-
-    flex-direction:column;
 
     align-items:center;
 
     justify-content:center;
 
+    color:white;
+
     text-align:center;
 
-    background:#f3ead9;
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    line-height:1.7;
 }
 
-.magic-text .frog{
+.image-text{
 
-    font-size:48px;
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:50px;
+}
+
+.image-text .icon{
+
+    font-size:45px;
 
     margin-bottom:20px;
 }
 
-.magic-text h2{
-
-    font-size:38px;
+.image-text h2{
 
     font-weight:normal;
 
-    color:var(--verde);
+    font-size:35px;
+
+    color:var(--verde-oscuro);
 }
 
-.magic-text p{
+.image-text p{
 
     margin-top:25px;
 
@@ -743,75 +983,90 @@ body{
 }
 
 
-/* ==============================
+/* =========================================================
    EVENTOS
-================================ */
+========================================================= */
 
 .events{
 
     padding:
-        80px 35px;
+    80px 40px;
 
     text-align:center;
 }
 
 .events h2{
 
-    font-size:38px;
-
     font-weight:normal;
 
-    color:var(--verde);
+    font-size:38px;
+
+    color:var(--verde-oscuro);
 }
 
-.events-grid{
+.event-grid{
 
-    max-width:700px;
+    max-width:720px;
 
     margin:
-        45px auto 0;
+    45px auto 0;
 
     display:grid;
 
     grid-template-columns:
-        repeat(2,1fr);
+    repeat(2,1fr);
 
-    gap:22px;
+    gap:25px;
 }
 
-.card{
-
-    padding:
-        40px 25px;
+.event-card{
 
     background:#fffdf5;
 
     border:
-        1px solid
-        rgba(185,149,80,.6);
+    1px solid
+    rgba(185,148,78,.55);
+
+    padding:
+    40px 25px;
+
+    position:relative;
 
     box-shadow:
-        0 10px 25px
-        rgba(45,65,45,.08);
+    0 10px 25px
+    rgba(40,60,40,.08);
 }
 
-.card .icon{
+.event-card::before{
 
-    font-size:40px;
+    content:"";
+
+    position:absolute;
+
+    inset:7px;
+
+    border:
+    1px solid
+    rgba(185,148,78,.25);
 }
 
-.card h3{
+.event-icon{
+
+    font-size:42px;
+}
+
+.event-card h3{
 
     margin:15px 0;
-
-    color:var(--verde);
 
     font-size:25px;
 
     font-weight:normal;
+
+    color:var(--verde-oscuro);
 }
 
-.card p{
+.event-card p{
 
     line-height:1.8;
 }
@@ -823,11 +1078,9 @@ body{
     margin-top:20px;
 
     padding:
-        11px 25px;
+    11px 25px;
 
-    border-radius:30px;
-
-    background:var(--verde);
+    background:var(--verde-oscuro);
 
     color:white;
 
@@ -835,72 +1088,73 @@ body{
 
     font-family:Arial,sans-serif;
 
-    font-size:10px;
+    font-size:11px;
 
     letter-spacing:1px;
+
+    border-radius:20px;
 }
 
 
-/* ==============================
+/* =========================================================
    CUENTA REGRESIVA
-================================ */
+========================================================= */
 
-.countdown{
+.countdown-section{
 
     padding:
-        75px 25px;
+    80px 30px;
+
+    background:#e4ead7;
 
     text-align:center;
-
-    background:#dfe8d4;
 }
 
-.countdown h2{
-
-    font-size:35px;
+.countdown-section h2{
 
     font-weight:normal;
 
-    color:var(--verde);
+    font-size:35px;
+
+    color:var(--verde-oscuro);
 }
 
-.counter{
+.countdown{
 
     max-width:650px;
 
-    margin:
-        35px auto 0;
+    margin:40px auto 0;
 
     display:grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+    repeat(4,1fr);
 
     gap:12px;
 }
 
-.number{
+.count{
 
     padding:20px 5px;
 
     background:
-        rgba(255,255,255,.7);
+    rgba(255,255,255,.65);
 
     border:
-        1px solid
-        rgba(185,149,80,.4);
+    1px solid
+    rgba(185,148,78,.4);
 }
 
-.number strong{
+.count strong{
 
     display:block;
 
-    font-size:31px;
+    font-size:32px;
 
-    color:var(--verde-claro);
+    color:#64785e;
 }
 
-.number span{
+.count span{
 
     font-family:Arial,sans-serif;
 
@@ -910,18 +1164,119 @@ body{
 }
 
 
-/* ==============================
+/* =========================================================
+   ITINERARIO
+========================================================= */
+
+.timeline-section{
+
+    padding:
+    80px 35px;
+
+    text-align:center;
+}
+
+.timeline-section h2{
+
+    font-size:36px;
+
+    font-weight:normal;
+
+    color:var(--verde-oscuro);
+}
+
+.timeline{
+
+    max-width:550px;
+
+    margin:45px auto;
+
+    position:relative;
+}
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:0;
+    bottom:0;
+
+    width:1px;
+
+    background:var(--dorado);
+}
+
+.timeline-item{
+
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 60px 1fr;
+
+    align-items:center;
+
+    min-height:85px;
+}
+
+.timeline-dot{
+
+    width:22px;
+    height:22px;
+
+    border-radius:50%;
+
+    background:var(--verde);
+
+    border:
+    4px solid
+    var(--crema);
+
+    box-shadow:
+    0 0 0 1px
+    var(--dorado);
+
+    margin:auto;
+
+    z-index:2;
+}
+
+.timeline-time{
+
+    text-align:right;
+
+    padding-right:20px;
+}
+
+.timeline-name{
+
+    text-align:left;
+
+    padding-left:20px;
+}
+
+.timeline-time strong{
+
+    color:#927841;
+}
+
+
+/* =========================================================
    DRESS CODE
-================================ */
+========================================================= */
 
 .dress{
 
     padding:
-        80px 30px;
+    80px 30px;
+
+    background:#f1eadc;
 
     text-align:center;
-
-    background:#f1e8d7;
 }
 
 .dress h2{
@@ -930,31 +1285,110 @@ body{
 
     font-weight:normal;
 
-    color:var(--verde);
+    color:var(--verde-oscuro);
+}
+
+.dress-icon{
+
+    font-size:48px;
+
+    margin:20px;
 }
 
 .dress p{
 
     max-width:570px;
 
-    margin:25px auto;
+    margin:auto;
 
     line-height:1.9;
 }
 
 
-/* ==============================
+/* =========================================================
+   GALERÍA
+========================================================= */
+
+.gallery{
+
+    padding:
+    80px 30px;
+
+    text-align:center;
+}
+
+.gallery h2{
+
+    font-size:36px;
+
+    font-weight:normal;
+
+    color:var(--verde-oscuro);
+}
+
+.gallery-grid{
+
+    max-width:700px;
+
+    margin:40px auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:15px;
+}
+
+.gallery-photo{
+
+    height:330px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #c9d8b8,
+        #728c68
+    );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    font-family:Arial,sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+}
+
+.gallery-photo:nth-child(2){
+
+    margin-top:50px;
+}
+
+.gallery-photo:nth-child(3){
+
+    margin-top:-50px;
+}
+
+
+/* =========================================================
    REGALOS
-================================ */
+========================================================= */
 
 .gifts{
 
     padding:
-        80px 30px;
+    80px 30px;
 
     text-align:center;
 
-    background:#e1e9d7;
+    background:#e4ead7;
 }
 
 .gifts h2{
@@ -963,7 +1397,7 @@ body{
 
     font-weight:normal;
 
-    color:var(--verde);
+    color:var(--verde-oscuro);
 }
 
 .gifts p{
@@ -976,14 +1410,14 @@ body{
 }
 
 
-/* ==============================
+/* =========================================================
    CONFIRMACIÓN
-================================ */
+========================================================= */
 
 .confirm{
 
     padding:
-        80px 30px;
+    80px 30px;
 
     text-align:center;
 }
@@ -994,7 +1428,7 @@ body{
 
     font-weight:normal;
 
-    color:var(--verde);
+    color:var(--verde-oscuro);
 }
 
 .confirm p{
@@ -1006,43 +1440,43 @@ body{
     line-height:1.9;
 }
 
-.whatsapp{
+.confirm-button{
 
     display:inline-block;
 
     margin-top:20px;
 
     padding:
-        14px 30px;
+    14px 30px;
 
-    background:var(--verde);
+    background:var(--verde-oscuro);
 
     color:white;
 
     text-decoration:none;
 
-    border-radius:30px;
+    border-radius:25px;
 
     font-family:Arial,sans-serif;
 
-    font-size:10px;
+    font-size:11px;
 
     letter-spacing:1px;
 }
 
 
-/* ==============================
+/* =========================================================
    FINAL
-================================ */
+========================================================= */
 
 .final{
 
     padding:
-        100px 30px;
+    100px 30px;
 
     text-align:center;
 
-    background:var(--verde);
+    background:var(--verde-oscuro);
 
     color:white;
 }
@@ -1051,7 +1485,7 @@ body{
 
     font-size:50px;
 
-    color:#e7d18b;
+    color:#ead38e;
 }
 
 .final h2{
@@ -1059,11 +1493,11 @@ body{
     margin-top:20px;
 
     font-size:
-        clamp(32px,6vw,50px);
+    clamp(32px,6vw,50px);
 
     font-weight:normal;
 
-    color:#ead68f;
+    color:#f0dda0;
 }
 
 .final p{
@@ -1074,9 +1508,9 @@ body{
 }
 
 
-/* ==============================
+/* =========================================================
    CELULAR
-================================ */
+========================================================= */
 
 @media(max-width:700px){
 
@@ -1084,20 +1518,20 @@ body{
 
         width:96%;
 
-        margin:8px auto;
+        margin:10px auto;
     }
 
     .cover{
 
-        min-height:780px;
+        min-height:760px;
 
         padding:
-            70px 20px;
+        80px 25px;
     }
 
-    .tiana-frame{
+    .photo-placeholder{
 
-        width:270px;
+        width:260px;
 
         height:350px;
     }
@@ -1105,621 +1539,977 @@ body{
     .story{
 
         padding:
-            65px 28px;
+        65px 30px;
     }
 
-    .magic-section{
+    .image-story{
 
         grid-template-columns:1fr;
     }
 
-    .magic-image{
+    .image-placeholder{
 
-        height:430px;
+        min-height:430px;
     }
 
-    .events-grid{
+    .event-grid{
 
         grid-template-columns:1fr;
     }
 
-    .counter{
+    .countdown{
 
         grid-template-columns:
-            repeat(2,1fr);
+        repeat(2,1fr);
+    }
+
+    .gallery-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .gallery-photo,
+    .gallery-photo:nth-child(2),
+    .gallery-photo:nth-child(3){
+
+        margin:0;
+
+        height:400px;
+    }
+
+    .timeline-item{
+
+        grid-template-columns:
+        1fr 45px 1fr;
     }
 
 }
 
 </style>
+
 </head>
 
 
-<body>
+<body class="no-scroll">
 
 
-<!-- =================================
-     LUCIÉRNAGAS
-================================= -->
+<!-- =====================================================
+     FONDO
+===================================================== -->
 
-<div class="firefly f1"></div>
-<div class="firefly f2"></div>
-<div class="firefly f3"></div>
-<div class="firefly f4"></div>
-<div class="firefly f5"></div>
-<div class="firefly f6"></div>
-<div class="firefly f7"></div>
+<div class="magic-background">
 
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
 
-<!-- =================================
-     MÚSICA
-================================= -->
-
-<audio
-    id="backgroundMusic"
-    loop
-    preload="auto">
-
-    <source
-        src="cancion.mp3"
-        type="audio/mpeg">
-
-</audio>
+</div>
 
 
-<!-- =================================
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+
+
+
+<!-- =====================================================
+     MÚSICA DE FONDO
+     
+     VIDEO ID:
+     kYPGwIy-mbI
+
+     NO HAY BOTÓN.
+===================================================== -->
+
+<div id="musicPlayer">
+
+    <div id="youtubeAudio"></div>
+
+</div>
+
+
+
+<!-- =====================================================
      SOBRE
-================================= -->
+===================================================== -->
 
 <section id="opening">
 
 <div class="opening-content">
 
-    <div
-        class="envelope"
-        id="envelope"
-        onclick="openInvitation()">
 
-        <div class="envelope-back"></div>
+<div
+    class="envelope"
+    id="envelope"
+    onclick="openInvitation()">
 
-        <div class="envelope-title">
-            LEYDANI
-        </div>
 
-        <div class="envelope-front"></div>
+    <div class="envelope-back"></div>
 
-        <div class="flap"></div>
 
-        <div class="seal">
-            🪷
-        </div>
+    <div class="envelope-title">
+
+        LEYDANI
 
     </div>
 
 
-    <div class="open-text">
-        Una noche mágica está por comenzar
+    <div class="envelope-front"></div>
+
+
+    <div class="flap"></div>
+
+
+    <div class="seal">
+
+        🪷
+
     </div>
 
-    <div class="open-small">
-        Toca el sobre para abrir la invitación
-    </div>
+
+</div>
+
+
+<div class="open-text">
+
+    Una noche mágica está por comenzar
+
+</div>
+
+
+<div class="open-small">
+
+    Toca el sobre para abrir la invitación
+
+</div>
+
 
 </div>
 
 </section>
 
 
-<!-- =================================
+
+<!-- =====================================================
      INVITACIÓN
-================================= -->
+===================================================== -->
 
 <main id="invitation">
+
 
 <div class="paper">
 
 
-<!-- =================================
+<div class="flower-decoration flower-top-left">
+🌿🪷
+</div>
+
+<div class="flower-decoration flower-top-right">
+🪷🌿
+</div>
+
+
+
+<!-- =====================================================
      PORTADA
-================================= -->
+===================================================== -->
 
 <section class="cover">
 
+
 <div class="cover-content">
 
-    <div class="mini-title">
-        CON LA BENDICIÓN DE DIOS
-    </div>
 
-    <div class="lotus">
-        ✦ 🪷 ✦
-    </div>
+<div class="small-title">
 
-    <div class="cover-subtitle">
-        Una noche de magia, sueños y amor
-    </div>
+CON LA BENDICIÓN DE DIOS
 
-    <h1>
-        Leydani
-    </h1>
-
-    <div class="xv">
-        MIS XV AÑOS
-    </div>
-
-    <div class="gold-line"></div>
+</div>
 
 
-    <!-- FOTO TIANAS.PNG -->
+<div class="lotus">
 
-    <div class="tiana-frame">
+🪷
 
-        <img
-            src="TIANAS.png"
-            alt="Tiana y el sapo">
-
-    </div>
+</div>
 
 
-    <div class="date">
-        05 · DICIEMBRE · 2026
-    </div>
+<div class="cover-subtitle">
+
+Una noche de magia, sueños y amor
+
+</div>
+
+
+<h1>
+
+Leydani
+
+</h1>
+
+
+<div class="xv">
+
+MIS XV AÑOS
+
+</div>
+
+
+<div class="gold-line"></div>
+
+
+
+<!-- FOTO PROVISIONAL -->
+
+<div class="photo-placeholder">
+
+<div class="photo-inner">
+
+<div class="photo-symbol">
+
+🐸
+
+</div>
+
+<span>
+
+AQUÍ IRÁ LA FOTO DE LEYDANI
+
+<br>
+
+FOTO PROVISIONAL
+
+</span>
+
+</div>
+
+</div>
+
+
+<div class="small-title">
+
+05 · DICIEMBRE · 2026
+
+</div>
+
 
 </div>
 
 </section>
 
 
-<!-- =================================
-     HISTORIA
-================================= -->
+
+<!-- =====================================================
+     CUENTO
+===================================================== -->
 
 <section class="story">
 
-    <div class="lotus">
-        🪷 ✦ 🐸 ✦ 🪷
-    </div>
 
-    <h2>
-        Érase una vez...
-    </h2>
+<div class="lotus">
 
-    <p>
+✦ 🪷 ✦
 
-        Una princesa que soñaba con una noche
-        llena de magia, música, flores y las
-        personas que más ama.
+</div>
 
-        <br><br>
 
-        El tiempo pasó y aquel sueño comenzó
-        a convertirse en realidad.
+<h2 class="story-title">
 
-        <br><br>
+Érase una vez...
 
-        Hoy quiero compartir contigo una noche
-        muy especial: el comienzo de un nuevo
-        capítulo de mi vida.
+</h2>
 
-    </p>
 
-    <div class="quote">
-        “Y así comienza un nuevo capítulo...”
-    </div>
+<p>
+
+Una princesa que soñaba con una noche
+llena de magia, música, flores y las
+personas que más ama.
+
+<br><br>
+
+El tiempo pasó y aquel sueño comenzó
+a convertirse en realidad.
+
+<br><br>
+
+Hoy quiero compartir contigo una noche
+que marcará el comienzo de un nuevo
+capítulo de mi vida.
+
+</p>
+
+
+<div class="quote">
+
+“Y así comienza un nuevo capítulo...”
+
+</div>
+
 
 </section>
 
 
-<!-- =================================
-     SECCIÓN TIANA
-================================= -->
 
-<section class="magic-section">
+<!-- =====================================================
+     TIANA / FOTO TEMÁTICA
+===================================================== -->
 
-    <div class="magic-image">
-
-        <img
-            src="TIANAS.png"
-            alt="Tiana">
-
-    </div>
+<section class="image-story">
 
 
-    <div class="magic-text">
+<div class="image-placeholder">
 
-        <div class="frog">
-            🐸
-        </div>
+🌿 🪷 🐸
 
-        <h2>
-            Un cuento de hadas
-        </h2>
+<br><br>
 
-        <p>
+AQUÍ IRÁ UNA IMAGEN
+<br>
+DE TIANA O DEL SAPO
 
-            Entre luciérnagas, nenúfares,
-            estrellas y sueños por cumplir,
+<br><br>
 
-            <br><br>
+IMAGEN PROVISIONAL
 
-            quiero que seas parte de una noche
-            que guardaré para siempre
-            en mi corazón.
+</div>
 
-            <br><br>
 
-            Porque algunas historias
-            merecen celebrarse juntos.
+<div class="image-text">
 
-        </p>
 
-        <div class="lotus">
-            🪷
-        </div>
+<div class="icon">
 
-    </div>
+🐸
+
+</div>
+
+
+<h2>
+
+Un cuento de hadas
+
+</h2>
+
+
+<p>
+
+Entre luciérnagas, nenúfares
+y sueños por cumplir,
+te invito a ser parte de
+mi noche más especial.
+
+<br><br>
+
+Porque algunas historias
+merecen celebrarse juntos.
+
+</p>
+
+
+</div>
 
 </section>
 
 
-<!-- =================================
+
+<!-- =====================================================
      EVENTOS
-================================= -->
+===================================================== -->
 
 <section class="events">
 
-    <h2>
-        Los momentos de la noche
-    </h2>
 
-    <div class="gold-line"></div>
+<h2>
 
+Los momentos de la noche
 
-    <div class="events-grid">
+</h2>
 
 
-        <!-- IGLESIA -->
-
-        <div class="card">
-
-            <div class="icon">
-                ⛪
-            </div>
-
-            <h3>
-                Ceremonia
-            </h3>
-
-            <p>
-
-                <strong>
-                    05 de diciembre de 2026
-                </strong>
-
-                <br><br>
-
-                Hora:
-
-                <br>
-
-                PENDIENTE
-
-                <br><br>
-
-                Iglesia:
-
-                <br>
-
-                PENDIENTE
-
-            </p>
-
-            <a
-                href="#"
-                class="map">
-
-                VER UBICACIÓN
-
-            </a>
-
-        </div>
+<div class="gold-line"></div>
 
 
-        <!-- SALÓN -->
-
-        <div class="card">
-
-            <div class="icon">
-                🥂
-            </div>
-
-            <h3>
-                Recepción
-            </h3>
-
-            <p>
-
-                <strong>
-                    05 de diciembre de 2026
-                </strong>
-
-                <br><br>
-
-                Hora:
-
-                <br>
-
-                PENDIENTE
-
-                <br><br>
-
-                Salón:
-
-                <br>
-
-                <strong>
-                    Salón de fiestas Handylu
-                </strong>
-
-            </p>
+<div class="event-grid">
 
 
-            <a
-                href="https://www.google.com/maps/place/Sal%C3%B3n+de+fiestas+Handylu/@19.280818,-99.5416999,15z/data=!4m6!3m5!1s0x85cd8b0048dcb7fb:0xd29c02992f8c4cff!8m2!3d19.2748849!4d-99.5478329!16s%2Fg%2F11xl8j2zjs"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="map">
+<div class="event-card">
 
-                VER MAPA
 
-            </a>
+<div class="event-icon">
 
-        </div>
+⛪
 
-    </div>
+</div>
+
+
+<h3>
+
+Ceremonia
+
+</h3>
+
+
+<p>
+
+<strong>
+
+05 de diciembre de 2026
+
+</strong>
+
+<br><br>
+
+Hora:
+
+<br>
+
+PENDIENTE
+
+<br><br>
+
+Iglesia:
+
+<br>
+
+PENDIENTE
+
+</p>
+
+
+<a
+href="https://www.google.com/maps"
+target="_blank"
+class="map">
+
+VER UBICACIÓN
+
+</a>
+
+
+</div>
+
+
+
+<div class="event-card">
+
+
+<div class="event-icon">
+
+🥂
+
+</div>
+
+
+<h3>
+
+Recepción
+
+</h3>
+
+
+<p>
+
+<strong>
+
+05 de diciembre de 2026
+
+</strong>
+
+<br><br>
+
+Hora:
+
+<br>
+
+PENDIENTE
+
+<br><br>
+
+Salón:
+
+<br>
+
+PENDIENTE
+
+</p>
+
+
+<a
+href="https://www.google.com/maps"
+target="_blank"
+class="map">
+
+VER UBICACIÓN
+
+</a>
+
+
+</div>
+
+
+</div>
 
 </section>
 
 
-<!-- =================================
+
+<!-- =====================================================
      CUENTA REGRESIVA
-================================= -->
+===================================================== -->
 
-<section class="countdown">
-
-    <h2>
-        Falta poco para nuestro gran día
-    </h2>
-
-    <div class="gold-line"></div>
+<section class="countdown-section">
 
 
-    <div class="counter">
+<h2>
+
+Falta poco para nuestro gran día
+
+</h2>
 
 
-        <div class="number">
-
-            <strong id="days">
-                0
-            </strong>
-
-            <span>
-                DÍAS
-            </span>
-
-        </div>
+<div class="gold-line"></div>
 
 
-        <div class="number">
-
-            <strong id="hours">
-                0
-            </strong>
-
-            <span>
-                HORAS
-            </span>
-
-        </div>
+<div class="countdown">
 
 
-        <div class="number">
+<div class="count">
 
-            <strong id="minutes">
-                0
-            </strong>
+<strong id="days">0</strong>
 
-            <span>
-                MINUTOS
-            </span>
+<span>DÍAS</span>
 
-        </div>
+</div>
 
 
-        <div class="number">
+<div class="count">
 
-            <strong id="seconds">
-                0
-            </strong>
+<strong id="hours">0</strong>
 
-            <span>
-                SEGUNDOS
-            </span>
+<span>HORAS</span>
 
-        </div>
+</div>
 
 
-    </div>
+<div class="count">
+
+<strong id="minutes">0</strong>
+
+<span>MINUTOS</span>
+
+</div>
+
+
+<div class="count">
+
+<strong id="seconds">0</strong>
+
+<span>SEGUNDOS</span>
+
+</div>
+
+
+</div>
+
 
 </section>
 
 
-<!-- =================================
+
+<!-- =====================================================
+     ITINERARIO
+===================================================== -->
+
+<section class="timeline-section">
+
+
+<h2>
+
+Itinerario
+
+</h2>
+
+
+<div class="gold-line"></div>
+
+
+<div class="timeline">
+
+
+<div class="timeline-item">
+
+<div class="timeline-time">
+
+<strong>PENDIENTE</strong>
+
+</div>
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-name">
+
+Llegada
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-time">
+
+<strong>PENDIENTE</strong>
+
+</div>
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-name">
+
+Ceremonia
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-time">
+
+<strong>PENDIENTE</strong>
+
+</div>
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-name">
+
+Sesión de fotos
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-time">
+
+<strong>PENDIENTE</strong>
+
+</div>
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-name">
+
+Recepción
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-time">
+
+<strong>PENDIENTE</strong>
+
+</div>
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-name">
+
+¡A celebrar!
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
      DRESS CODE
-================================= -->
+===================================================== -->
 
 <section class="dress">
 
-    <div class="lotus">
-        👑
-    </div>
 
-    <h2>
-        Código de vestimenta
-    </h2>
+<div class="dress-icon">
 
-    <div class="gold-line"></div>
+👗
 
-    <p>
+</div>
 
-        <strong>
-            ELEGANTE
-        </strong>
 
-        <br><br>
+<h2>
 
-        Con mucho cariño te pedimos vestir
-        de manera elegante para esta noche.
+Código de vestimenta
 
-        <br><br>
+</h2>
 
-        El color verde queda reservado
-        para la quinceañera.
 
-    </p>
+<div class="gold-line"></div>
+
+
+<p>
+
+<strong>
+
+ELEGANTE
+
+</strong>
+
+<br><br>
+
+Con mucho cariño te pedimos vestir
+de manera elegante para esta noche.
+
+<br><br>
+
+El color verde queda reservado
+para la quinceañera. 💚
+
+</p>
+
 
 </section>
 
 
-<!-- =================================
+
+<!-- =====================================================
+     GALERÍA
+===================================================== -->
+
+<section class="gallery">
+
+
+<h2>
+
+Momentos de mi historia
+
+</h2>
+
+
+<div class="gold-line"></div>
+
+
+<div class="gallery-grid">
+
+
+<div class="gallery-photo">
+FOTO 01
+</div>
+
+
+<div class="gallery-photo">
+FOTO 02
+</div>
+
+
+<div class="gallery-photo">
+FOTO 03
+</div>
+
+
+<div class="gallery-photo">
+FOTO 04
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
      REGALOS
-================================= -->
+===================================================== -->
 
 <section class="gifts">
 
-    <div class="lotus">
-        🎁
-    </div>
 
-    <h2>
-        Lluvia de regalos
-    </h2>
+<h2>
 
-    <div class="gold-line"></div>
+Lluvia de regalos
 
-    <p>
+</h2>
 
-        Tu presencia en este día
-        es el mejor regalo.
 
-        <br><br>
+<div class="gold-line"></div>
 
-        Si deseas obsequiarme algún detalle,
-        será recibido con mucho cariño.
 
-        <br><br>
+<div style="font-size:45px;margin:25px;">
 
-        <strong>
-            DATOS PENDIENTES
-        </strong>
+🎁
 
-    </p>
+</div>
+
+
+<p>
+
+Tu presencia en este día
+es el mejor regalo.
+
+<br><br>
+
+Si deseas obsequiarme algo,
+puedes hacerlo de la manera
+que tu corazón elija.
+
+<br><br>
+
+<strong>
+
+DATOS PENDIENTES
+
+</strong>
+
+</p>
+
 
 </section>
 
 
-<!-- =================================
+
+<!-- =====================================================
      CONFIRMACIÓN
-================================= -->
+===================================================== -->
 
 <section class="confirm">
 
-    <div class="lotus">
-        🪷
-    </div>
 
-    <h2>
-        Confirma tu asistencia
-    </h2>
+<div class="lotus">
 
-    <div class="gold-line"></div>
+🪷
 
-    <p>
-
-        Será un honor compartir contigo
-        esta noche tan importante.
-
-        <br><br>
-
-        Por favor confirma tu asistencia
-        antes de:
-
-        <br><br>
-
-        <strong>
-            FECHA PENDIENTE
-        </strong>
-
-    </p>
+</div>
 
 
-    <a
-        href="#"
-        class="whatsapp"
-        onclick="confirmar(event)">
+<h2>
 
-        CONFIRMAR ASISTENCIA
+Confirma tu asistencia
 
-    </a>
+</h2>
+
+
+<div class="gold-line"></div>
+
+
+<p>
+
+Será un honor compartir contigo
+esta noche tan importante.
+
+<br><br>
+
+Por favor confirma tu asistencia
+antes de:
+
+<br><br>
+
+<strong>
+
+FECHA PENDIENTE
+
+</strong>
+
+</p>
+
+
+<a
+href="#"
+class="confirm-button"
+onclick="confirmAttendance(event)">
+
+CONFIRMAR ASISTENCIA
+
+</a>
+
 
 </section>
 
 
-<!-- =================================
+
+<!-- =====================================================
      FINAL
-================================= -->
+===================================================== -->
 
 <section class="final">
 
-    <div class="crown">
-        ♕
-    </div>
 
-    <h2>
-        Gracias por ser parte
-        de mi cuento
-    </h2>
+<div class="crown">
 
-    <p>
+♕
 
-        Hay noches que pasan...
+</div>
 
-        <br>
 
-        y hay noches que se quedan
-        para siempre en el corazón.
+<h2>
 
-    </p>
+Gracias por ser parte
+de mi cuento
 
-    <p>
+</h2>
 
-        Con cariño,
 
-        <br><br>
+<p>
 
-        <strong>
-            LEYDANI TROCHE
-        </strong>
+Hay noches que pasan...
 
-    </p>
+<br>
 
-    <p>
-        05 · 12 · 2026
-    </p>
+y hay noches que se quedan
+para siempre en el corazón.
 
-    <p style="font-size:25px;">
-        🪷 ✦ 🐸 ✦ 🪷
-    </p>
+</p>
+
+
+<p>
+
+Con cariño,
+
+<br><br>
+
+<strong>
+
+LEYDANI TROCHE
+
+</strong>
+
+</p>
+
+
+<p>
+
+05 · 12 · 2026
+
+</p>
+
+
+<p style="font-size:25px;margin-top:30px;">
+
+🪷 ✦ 🐸 ✦ 🪷
+
+</p>
+
 
 </section>
 
@@ -1729,166 +2519,248 @@ body{
 </main>
 
 
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
-/* =================================
-   ABRIR SOBRE + MÚSICA
-================================= */
+/* =========================================================
+   VARIABLES DE YOUTUBE
+========================================================= */
 
-function openInvitation(){
+let youtubePlayer = null;
 
-    const envelope =
-        document.getElementById(
-            "envelope"
-        );
+let musicReady = false;
 
-    const opening =
-        document.getElementById(
-            "opening"
-        );
-
-    const invitation =
-        document.getElementById(
-            "invitation"
-        );
-
-    const music =
-        document.getElementById(
-            "backgroundMusic"
-        );
+let waitingForMusic = false;
 
 
-    /* Animación del sobre */
+/* =========================================================
+   CARGAR API DE YOUTUBE
+========================================================= */
 
-    envelope.classList.add(
-        "open"
-    );
+function loadYouTubeAPI(){
 
+    const tag =
+    document.createElement("script");
 
-    /* Música */
+    tag.src =
+    "https://www.youtube.com/iframe_api";
 
-    music.volume = 0.45;
+    const firstScript =
+    document.getElementsByTagName("script")[0];
 
-    music.play().catch(
-        function(error){
-
-            console.log(
-                "La música no pudo reproducirse:",
-                error
-            );
-
-        }
-    );
-
-
-    /* Mostrar invitación */
-
-    setTimeout(
-        function(){
-
-            opening.classList.add(
-                "hide"
-            );
-
-            invitation.classList.add(
-                "show"
-            );
-
-        },
-        900
+    firstScript.parentNode.insertBefore(
+        tag,
+        firstScript
     );
 
 }
 
 
-/* =================================
+/* =========================================================
+   CREAR REPRODUCTOR
+========================================================= */
+
+function onYouTubeIframeAPIReady(){
+
+    youtubePlayer =
+    new YT.Player(
+        "youtubeAudio",
+        {
+
+            height:"1",
+
+            width:"1",
+
+            videoId:"kYPGwIy-mbI",
+
+            playerVars:{
+
+                autoplay:0,
+
+                controls:0,
+
+                disablekb:1,
+
+                fs:0,
+
+                playsinline:1,
+
+                rel:0,
+
+                modestbranding:1,
+
+                loop:1,
+
+                playlist:"kYPGwIy-mbI"
+
+            },
+
+            events:{
+
+                onReady:function(){
+
+                    musicReady=true;
+
+                    youtubePlayer.setVolume(45);
+
+                    if(waitingForMusic){
+
+                        youtubePlayer.playVideo();
+
+                    }
+
+                }
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   INICIAR API
+========================================================= */
+
+loadYouTubeAPI();
+
+
+/* =========================================================
+   ABRIR INVITACIÓN
+========================================================= */
+
+function openInvitation(){
+
+    const envelope =
+    document.getElementById("envelope");
+
+    const opening =
+    document.getElementById("opening");
+
+    const invitation =
+    document.getElementById("invitation");
+
+
+    /* Abrir sobre */
+
+    envelope.classList.add("open");
+
+
+    /* Intentar iniciar música */
+
+    waitingForMusic=true;
+
+
+    if(
+        musicReady &&
+        youtubePlayer
+    ){
+
+        youtubePlayer.setVolume(45);
+
+        youtubePlayer.playVideo();
+
+    }
+
+
+    /* Mostrar invitación */
+
+    setTimeout(function(){
+
+        opening.classList.add("hide");
+
+        document.body.classList.remove(
+            "no-scroll"
+        );
+
+        invitation.classList.add("show");
+
+    },900);
+
+}
+
+
+/* =========================================================
    CUENTA REGRESIVA
-================================= */
+========================================================= */
 
 const eventDate =
-    new Date(
-        "December 5, 2026 19:00:00"
-    ).getTime();
+new Date(
+    "December 5, 2026 19:00:00"
+).getTime();
 
 
 function countdown(){
 
     const now =
-        new Date().getTime();
+    new Date().getTime();
 
     const difference =
-        eventDate - now;
+    eventDate-now;
 
 
-    if(
-        difference <= 0
-    ){
+    if(difference<=0){
 
-        document.getElementById(
-            "days"
-        ).textContent = "0";
+        document.getElementById("days")
+        .textContent="0";
 
-        document.getElementById(
-            "hours"
-        ).textContent = "0";
+        document.getElementById("hours")
+        .textContent="0";
 
-        document.getElementById(
-            "minutes"
-        ).textContent = "0";
+        document.getElementById("minutes")
+        .textContent="0";
 
-        document.getElementById(
-            "seconds"
-        ).textContent = "0";
+        document.getElementById("seconds")
+        .textContent="0";
 
         return;
+
     }
 
 
     const days =
-        Math.floor(
-            difference /
-            (1000 * 60 * 60 * 24)
-        );
+    Math.floor(
+        difference/
+        (1000*60*60*24)
+    );
 
 
     const hours =
-        Math.floor(
-            (difference /
-            (1000 * 60 * 60)) % 24
-        );
+    Math.floor(
+        (difference/
+        (1000*60*60))%24
+    );
 
 
     const minutes =
-        Math.floor(
-            (difference /
-            (1000 * 60)) % 60
-        );
+    Math.floor(
+        (difference/
+        (1000*60))%60
+    );
 
 
     const seconds =
-        Math.floor(
-            (difference / 1000) % 60
-        );
+    Math.floor(
+        (difference/1000)%60
+    );
 
 
-    document.getElementById(
-        "days"
-    ).textContent = days;
+    document.getElementById("days")
+    .textContent=days;
 
+    document.getElementById("hours")
+    .textContent=hours;
 
-    document.getElementById(
-        "hours"
-    ).textContent = hours;
+    document.getElementById("minutes")
+    .textContent=minutes;
 
-
-    document.getElementById(
-        "minutes"
-    ).textContent = minutes;
-
-
-    document.getElementById(
-        "seconds"
-    ).textContent = seconds;
+    document.getElementById("seconds")
+    .textContent=seconds;
 
 }
 
@@ -1901,21 +2773,23 @@ setInterval(
 );
 
 
-/* =================================
-   CONFIRMACIÓN
-================================= */
+/* =========================================================
+   CONFIRMACIÓN PROVISIONAL
+========================================================= */
 
-function confirmar(event){
+function confirmAttendance(event){
 
     event.preventDefault();
 
     alert(
-        "Aquí colocaremos el número de WhatsApp de confirmación."
+        "Aquí colocaremos posteriormente el WhatsApp para confirmar la asistencia."
     );
 
 }
 
 </script>
 
+
 </body>
+
 </html>
