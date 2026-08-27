@@ -3,24 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>XV Años | Leydani Troche</title>
 
 <style>
 
+/* ==============================
+   COLORES
+================================ */
+
 :root{
-    --verde:#31533c;
-    --verde2:#4d7050;
-    --crema:#fbf7eb;
-    --papel:#f3ead7;
-    --dorado:#b28a43;
-    --dorado2:#d9bd76;
+    --verde:#35583f;
+    --verde-claro:#6f8c68;
+    --crema:#fbf7ec;
+    --papel:#f2ead8;
+    --dorado:#b99550;
+    --dorado-claro:#e2cd91;
     --texto:#526052;
 }
 
+
+/* ==============================
+   GENERAL
+================================ */
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -28,71 +38,135 @@ html{
 }
 
 body{
-    font-family:Georgia,"Times New Roman",serif;
     background:
-        radial-gradient(circle at top,#66815f,#294333);
+        radial-gradient(
+            circle at top,
+            #6d8964,
+            #294533
+        );
+
     color:var(--texto);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     overflow-x:hidden;
 }
 
 
-/* =========================
+/* ==============================
    LUCIÉRNAGAS
-========================= */
+================================ */
 
 .firefly{
     position:fixed;
+
     width:5px;
     height:5px;
-    background:#f4e6a3;
+
     border-radius:50%;
+
+    background:#f5e9a9;
+
     box-shadow:
-        0 0 8px #fff5bb,
-        0 0 18px #d9eaa4;
-    z-index:50;
-    animation:float 5s infinite ease-in-out;
+        0 0 8px #fff7bd,
+        0 0 18px #dceaa5;
+
     pointer-events:none;
+
+    z-index:50;
+
+    animation:
+        fireflyMove 5s
+        infinite
+        ease-in-out;
 }
 
-.f1{left:8%;top:22%;}
-.f2{left:18%;top:65%;animation-delay:1s;}
-.f3{left:34%;top:32%;animation-delay:2s;}
-.f4{left:51%;top:72%;animation-delay:3s;}
-.f5{left:67%;top:19%;animation-delay:1.5s;}
-.f6{left:82%;top:48%;animation-delay:2.5s;}
-.f7{left:91%;top:78%;animation-delay:4s;}
+.f1{
+    left:8%;
+    top:20%;
+}
 
-@keyframes float{
+.f2{
+    left:18%;
+    top:65%;
+    animation-delay:1s;
+}
+
+.f3{
+    left:33%;
+    top:35%;
+    animation-delay:2s;
+}
+
+.f4{
+    left:50%;
+    top:75%;
+    animation-delay:3s;
+}
+
+.f5{
+    left:68%;
+    top:18%;
+    animation-delay:1.5s;
+}
+
+.f6{
+    left:82%;
+    top:48%;
+    animation-delay:2.5s;
+}
+
+.f7{
+    left:92%;
+    top:78%;
+    animation-delay:4s;
+}
+
+@keyframes fireflyMove{
+
     0%,100%{
         opacity:.15;
-        transform:translate(0,0);
+        transform:
+            translate(0,0);
     }
+
     50%{
         opacity:1;
-        transform:translate(20px,-25px);
+        transform:
+            translate(20px,-25px);
     }
 }
 
 
-/* =========================
+/* ==============================
    SOBRE
-========================= */
+================================ */
 
 #opening{
+
     position:fixed;
+
     inset:0;
+
     z-index:1000;
+
     display:flex;
-    align-items:center;
+
     justify-content:center;
+
+    align-items:center;
+
     text-align:center;
 
     background:
         radial-gradient(
             circle,
-            #66865c 0%,
-            #3e6047 45%,
-            #203a2b 100%
+            #66845e 0%,
+            #3c5e45 45%,
+            #1f392a 100%
         );
 
     transition:
@@ -101,20 +175,32 @@ body{
 }
 
 #opening.hide{
+
     opacity:0;
+
     visibility:hidden;
 }
 
 .opening-content{
+
     width:100%;
 }
 
+
+/* SOBRE */
+
 .envelope{
+
     width:350px;
+
     max-width:88vw;
+
     height:225px;
-    position:relative;
+
     margin:auto;
+
+    position:relative;
+
     cursor:pointer;
 
     filter:
@@ -125,14 +211,16 @@ body{
 }
 
 .envelope-back{
+
     position:absolute;
+
     inset:0;
 
     background:
         linear-gradient(
             145deg,
-            #fffdf6,
-            #e8dcc0
+            #fffdf7,
+            #e9dec4
         );
 
     border:
@@ -143,17 +231,26 @@ body{
 }
 
 .envelope-front{
+
     position:absolute;
+
     inset:0;
+
     overflow:hidden;
 }
 
 .envelope-front::before{
+
     content:"";
+
     position:absolute;
+
     bottom:0;
+
     left:0;
+
     width:0;
+
     height:0;
 
     border-left:
@@ -167,10 +264,15 @@ body{
 }
 
 .flap{
+
     position:absolute;
+
     top:0;
+
     left:0;
+
     width:0;
+
     height:0;
 
     border-left:
@@ -182,7 +284,8 @@ body{
     border-top:
         125px solid #fffaf0;
 
-    transform-origin:top center;
+    transform-origin:
+        top center;
 
     transition:
         transform 1s ease;
@@ -191,34 +294,47 @@ body{
 }
 
 .envelope.open .flap{
-    transform:rotateX(180deg);
+
+    transform:
+        rotateX(180deg);
 }
 
 .envelope-title{
+
     position:absolute;
+
     top:32px;
+
     width:100%;
 
     color:var(--verde);
 
     font-size:18px;
+
     letter-spacing:5px;
+
     z-index:6;
 }
 
 .seal{
+
     position:absolute;
+
     top:55%;
+
     left:50%;
 
     transform:
         translate(-50%,-50%);
 
     width:72px;
+
     height:72px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     border-radius:50%;
@@ -227,36 +343,49 @@ body{
 
     border:
         3px solid
-        var(--dorado2);
+        var(--dorado-claro);
 
     color:white;
-    font-size:31px;
+
+    font-size:30px;
+
     z-index:10;
 }
 
 .open-text{
+
     margin-top:30px;
+
     color:#f8edc4;
+
     font-size:18px;
+
     letter-spacing:1px;
 }
 
 .open-small{
+
     margin-top:10px;
-    color:rgba(255,255,255,.7);
+
+    color:
+        rgba(255,255,255,.7);
 
     font-family:Arial,sans-serif;
+
     font-size:11px;
 }
 
 
-/* =========================
+/* ==============================
    INVITACIÓN
-========================= */
+================================ */
 
 #invitation{
+
     opacity:0;
-    transform:translateY(35px);
+
+    transform:
+        translateY(35px);
 
     transition:
         opacity 1.2s ease,
@@ -264,63 +393,75 @@ body{
 }
 
 #invitation.show{
+
     opacity:1;
-    transform:translateY(0);
+
+    transform:
+        translateY(0);
 }
 
 .paper{
+
     width:min(900px,94%);
+
     margin:25px auto;
 
     background:var(--crema);
 
     position:relative;
 
+    overflow:hidden;
+
     box-shadow:
         0 25px 70px
         rgba(0,0,0,.35);
-
-    overflow:hidden;
 }
 
 
-/* =========================
-   BORDES DORADOS
-========================= */
+/* BORDES */
 
 .paper::before{
+
     content:"";
+
     position:absolute;
+
     inset:12px;
 
     border:
         1px solid
-        rgba(178,138,67,.9);
+        rgba(185,149,80,.9);
 
     pointer-events:none;
+
     z-index:20;
 }
 
 .paper::after{
+
     content:"";
+
     position:absolute;
+
     inset:19px;
 
     border:
         1px solid
-        rgba(178,138,67,.35);
+        rgba(185,149,80,.35);
 
     pointer-events:none;
+
     z-index:20;
 }
 
 
-/* =========================
+/* ==============================
    PORTADA
-========================= */
+================================ */
 
 .cover{
-    min-height:920px;
+
+    min-height:900px;
 
     position:relative;
 
@@ -329,122 +470,102 @@ body{
     padding:
         80px 30px 70px;
 
-    overflow:hidden;
-
     background:
 
         radial-gradient(
             circle at center,
-            rgba(218,232,191,.45),
+            rgba(214,229,191,.5),
             transparent 40%
         ),
 
         linear-gradient(
             180deg,
-            #fcf8ed,
-            #f1ead8
+            #fffdf5,
+            #f0e7d4
         );
-}
 
-.cover::before{
-    content:"";
-    position:absolute;
-
-    width:350px;
-    height:350px;
-
-    left:-180px;
-    top:230px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(83,119,80,.20),
-            transparent 70%
-        );
-}
-
-.cover::after{
-    content:"";
-    position:absolute;
-
-    width:350px;
-    height:350px;
-
-    right:-180px;
-    bottom:40px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(177,139,65,.12),
-            transparent 70%
-        );
+    overflow:hidden;
 }
 
 .cover-content{
+
     position:relative;
+
     z-index:5;
 }
 
 .mini-title{
+
     font-size:11px;
+
     letter-spacing:4px;
+
     color:#687765;
 }
 
 .lotus{
+
     margin:20px 0;
-    font-size:38px;
+
+    font-size:32px;
 }
 
 .cover-subtitle{
+
+    font-size:22px;
+
     font-style:italic;
-    font-size:23px;
+
     color:#71806e;
 }
 
 .cover h1{
+
     margin-top:12px;
 
     font-size:
         clamp(65px,12vw,110px);
 
     font-weight:normal;
-    color:var(--verde);
 
     line-height:.9;
+
+    color:var(--verde);
 }
 
 .xv{
+
     margin-top:18px;
 
     font-size:18px;
+
     letter-spacing:7px;
+
     color:#96783f;
 }
 
 .gold-line{
+
     width:140px;
+
     height:1px;
 
-    background:var(--dorado);
-
     margin:25px auto;
+
+    background:var(--dorado);
 }
 
 
-/* =========================
+/* ==============================
    FOTO DE TIANA
-========================= */
+================================ */
 
 .tiana-frame{
+
     width:340px;
+
     max-width:78vw;
+
     height:430px;
 
     margin:35px auto;
@@ -466,35 +587,36 @@ body{
 }
 
 .tiana-frame img{
+
     width:100%;
+
     height:100%;
 
     object-fit:contain;
 
-    background:#f3ead7;
-
     display:block;
+
+    background:#f3ead7;
 }
 
-
-/* =========================
-   FECHA
-========================= */
-
 .date{
+
     color:var(--verde);
 
     font-size:13px;
+
     letter-spacing:4px;
 }
 
 
-/* =========================
+/* ==============================
    HISTORIA
-========================= */
+================================ */
 
 .story{
-    padding:90px 50px;
+
+    padding:
+        90px 50px;
 
     text-align:center;
 
@@ -507,16 +629,19 @@ body{
 }
 
 .story h2{
+
     font-size:
         clamp(34px,6vw,48px);
 
     font-weight:normal;
+
     font-style:italic;
 
     color:var(--verde);
 }
 
 .story p{
+
     max-width:620px;
 
     margin:30px auto;
@@ -527,6 +652,7 @@ body{
 }
 
 .quote{
+
     font-size:22px;
 
     color:#957a42;
@@ -535,11 +661,12 @@ body{
 }
 
 
-/* =========================
-   TIANA + TEXTO
-========================= */
+/* ==============================
+   SECCIÓN MÁGICA
+================================ */
 
 .magic-section{
+
     display:grid;
 
     grid-template-columns:
@@ -549,9 +676,11 @@ body{
 }
 
 .magic-image{
+
     position:relative;
 
     width:100%;
+
     height:600px;
 
     overflow:hidden;
@@ -560,39 +689,29 @@ body{
 }
 
 .magic-image img{
+
     width:100%;
+
     height:100%;
 
     object-fit:contain;
 
-    background:#f3ead7;
-
     display:block;
-}
 
-.magic-image::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:
-        linear-gradient(
-            180deg,
-            transparent,
-            rgba(23,51,33,.15)
-        );
-
-    pointer-events:none;
+    background:#f3ead7;
 }
 
 .magic-text{
-    padding:60px 45px;
+
+    padding:
+        60px 45px;
 
     display:flex;
+
     flex-direction:column;
 
     align-items:center;
+
     justify-content:center;
 
     text-align:center;
@@ -601,11 +720,14 @@ body{
 }
 
 .magic-text .frog{
+
     font-size:48px;
+
     margin-bottom:20px;
 }
 
 .magic-text h2{
+
     font-size:38px;
 
     font-weight:normal;
@@ -614,22 +736,27 @@ body{
 }
 
 .magic-text p{
+
     margin-top:25px;
 
     line-height:1.9;
 }
 
 
-/* =========================
+/* ==============================
    EVENTOS
-========================= */
+================================ */
 
 .events{
-    padding:80px 35px;
+
+    padding:
+        80px 35px;
+
     text-align:center;
 }
 
 .events h2{
+
     font-size:38px;
 
     font-weight:normal;
@@ -638,6 +765,7 @@ body{
 }
 
 .events-grid{
+
     max-width:700px;
 
     margin:
@@ -652,13 +780,15 @@ body{
 }
 
 .card{
-    padding:40px 25px;
+
+    padding:
+        40px 25px;
 
     background:#fffdf5;
 
     border:
         1px solid
-        rgba(178,138,67,.6);
+        rgba(185,149,80,.6);
 
     box-shadow:
         0 10px 25px
@@ -666,10 +796,12 @@ body{
 }
 
 .card .icon{
+
     font-size:40px;
 }
 
 .card h3{
+
     margin:15px 0;
 
     color:var(--verde);
@@ -680,10 +812,12 @@ body{
 }
 
 .card p{
+
     line-height:1.8;
 }
 
 .map{
+
     display:inline-block;
 
     margin-top:20px;
@@ -707,12 +841,14 @@ body{
 }
 
 
-/* =========================
+/* ==============================
    CUENTA REGRESIVA
-========================= */
+================================ */
 
 .countdown{
-    padding:75px 25px;
+
+    padding:
+        75px 25px;
 
     text-align:center;
 
@@ -720,6 +856,7 @@ body{
 }
 
 .countdown h2{
+
     font-size:35px;
 
     font-weight:normal;
@@ -728,6 +865,7 @@ body{
 }
 
 .counter{
+
     max-width:650px;
 
     margin:
@@ -742,6 +880,7 @@ body{
 }
 
 .number{
+
     padding:20px 5px;
 
     background:
@@ -749,18 +888,20 @@ body{
 
     border:
         1px solid
-        rgba(178,138,67,.4);
+        rgba(185,149,80,.4);
 }
 
 .number strong{
+
     display:block;
 
     font-size:31px;
 
-    color:var(--verde2);
+    color:var(--verde-claro);
 }
 
 .number span{
+
     font-family:Arial,sans-serif;
 
     font-size:9px;
@@ -769,12 +910,14 @@ body{
 }
 
 
-/* =========================
+/* ==============================
    DRESS CODE
-========================= */
+================================ */
 
 .dress{
-    padding:80px 30px;
+
+    padding:
+        80px 30px;
 
     text-align:center;
 
@@ -782,6 +925,7 @@ body{
 }
 
 .dress h2{
+
     font-size:35px;
 
     font-weight:normal;
@@ -790,6 +934,7 @@ body{
 }
 
 .dress p{
+
     max-width:570px;
 
     margin:25px auto;
@@ -798,12 +943,14 @@ body{
 }
 
 
-/* =========================
+/* ==============================
    REGALOS
-========================= */
+================================ */
 
 .gifts{
-    padding:80px 30px;
+
+    padding:
+        80px 30px;
 
     text-align:center;
 
@@ -811,6 +958,7 @@ body{
 }
 
 .gifts h2{
+
     font-size:35px;
 
     font-weight:normal;
@@ -819,6 +967,7 @@ body{
 }
 
 .gifts p{
+
     max-width:570px;
 
     margin:25px auto;
@@ -827,17 +976,20 @@ body{
 }
 
 
-/* =========================
+/* ==============================
    CONFIRMACIÓN
-========================= */
+================================ */
 
 .confirm{
-    padding:80px 30px;
+
+    padding:
+        80px 30px;
 
     text-align:center;
 }
 
 .confirm h2{
+
     font-size:36px;
 
     font-weight:normal;
@@ -846,6 +998,7 @@ body{
 }
 
 .confirm p{
+
     max-width:570px;
 
     margin:25px auto;
@@ -854,6 +1007,7 @@ body{
 }
 
 .whatsapp{
+
     display:inline-block;
 
     margin-top:20px;
@@ -877,11 +1031,12 @@ body{
 }
 
 
-/* =========================
+/* ==============================
    FINAL
-========================= */
+================================ */
 
 .final{
+
     padding:
         100px 30px;
 
@@ -893,11 +1048,14 @@ body{
 }
 
 .final .crown{
+
     font-size:50px;
+
     color:#e7d18b;
 }
 
 .final h2{
+
     margin-top:20px;
 
     font-size:
@@ -909,24 +1067,28 @@ body{
 }
 
 .final p{
+
     margin-top:20px;
 
     line-height:1.8;
 }
 
 
-/* =========================
+/* ==============================
    CELULAR
-========================= */
+================================ */
 
 @media(max-width:700px){
 
     .paper{
+
         width:96%;
+
         margin:8px auto;
     }
 
     .cover{
+
         min-height:780px;
 
         padding:
@@ -934,42 +1096,51 @@ body{
     }
 
     .tiana-frame{
+
         width:270px;
+
         height:350px;
     }
 
     .story{
+
         padding:
             65px 28px;
     }
 
     .magic-section{
+
         grid-template-columns:1fr;
     }
 
     .magic-image{
+
         height:430px;
     }
 
     .events-grid{
+
         grid-template-columns:1fr;
     }
 
     .counter{
+
         grid-template-columns:
             repeat(2,1fr);
     }
+
 }
 
 </style>
 </head>
 
+
 <body>
 
 
-<!-- =========================
+<!-- =================================
      LUCIÉRNAGAS
-========================= -->
+================================= -->
 
 <div class="firefly f1"></div>
 <div class="firefly f2"></div>
@@ -980,9 +1151,9 @@ body{
 <div class="firefly f7"></div>
 
 
-<!-- =========================
+<!-- =================================
      MÚSICA
-========================= -->
+================================= -->
 
 <audio
     id="backgroundMusic"
@@ -996,555 +1167,573 @@ body{
 </audio>
 
 
-<!-- =========================
+<!-- =================================
      SOBRE
-========================= -->
+================================= -->
 
 <section id="opening">
 
 <div class="opening-content">
 
-<div
-    class="envelope"
-    id="envelope"
-    onclick="openInvitation()">
+    <div
+        class="envelope"
+        id="envelope"
+        onclick="openInvitation()">
 
-    <div class="envelope-back"></div>
+        <div class="envelope-back"></div>
 
-    <div class="envelope-title">
-        LEYDANI
+        <div class="envelope-title">
+            LEYDANI
+        </div>
+
+        <div class="envelope-front"></div>
+
+        <div class="flap"></div>
+
+        <div class="seal">
+            🪷
+        </div>
+
     </div>
 
-    <div class="envelope-front"></div>
 
-    <div class="flap"></div>
-
-    <div class="seal">
-        🪷
+    <div class="open-text">
+        Una noche mágica está por comenzar
     </div>
 
-</div>
-
-<div class="open-text">
-    Una noche mágica está por comenzar
-</div>
-
-<div class="open-small">
-    Toca el sobre para abrir la invitación
-</div>
+    <div class="open-small">
+        Toca el sobre para abrir la invitación
+    </div>
 
 </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =================================
      INVITACIÓN
-========================= -->
+================================= -->
 
 <main id="invitation">
 
 <div class="paper">
 
 
-<!-- =========================
+<!-- =================================
      PORTADA
-========================= -->
+================================= -->
 
 <section class="cover">
 
 <div class="cover-content">
 
-<div class="mini-title">
-    CON LA BENDICIÓN DE DIOS
-</div>
+    <div class="mini-title">
+        CON LA BENDICIÓN DE DIOS
+    </div>
 
-<div class="lotus">
-    ✦ 🪷 ✦
-</div>
+    <div class="lotus">
+        ✦ 🪷 ✦
+    </div>
 
-<div class="cover-subtitle">
-    Una noche de magia, sueños y amor
-</div>
+    <div class="cover-subtitle">
+        Una noche de magia, sueños y amor
+    </div>
 
-<h1>
-    Leydani
-</h1>
+    <h1>
+        Leydani
+    </h1>
 
-<div class="xv">
-    MIS XV AÑOS
-</div>
+    <div class="xv">
+        MIS XV AÑOS
+    </div>
 
-<div class="gold-line"></div>
-
-
-<!-- FOTO -->
-
-<div class="tiana-frame">
-
-    <img
-        src="TIANAS.png"
-        alt="Tiana y el sapo">
-
-</div>
+    <div class="gold-line"></div>
 
 
-<div class="date">
-    05 · DICIEMBRE · 2026
-</div>
+    <!-- FOTO TIANAS.PNG -->
+
+    <div class="tiana-frame">
+
+        <img
+            src="TIANAS.png"
+            alt="Tiana y el sapo">
+
+    </div>
+
+
+    <div class="date">
+        05 · DICIEMBRE · 2026
+    </div>
 
 </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =================================
      HISTORIA
-========================= -->
+================================= -->
 
 <section class="story">
 
-<div class="lotus">
-    🪷 ✦ 🐸 ✦ 🪷
-</div>
+    <div class="lotus">
+        🪷 ✦ 🐸 ✦ 🪷
+    </div>
 
-<h2>
-    Érase una vez...
-</h2>
+    <h2>
+        Érase una vez...
+    </h2>
 
-<p>
+    <p>
 
-Una princesa que soñaba con una noche
-llena de magia, música, flores y las
-personas que más ama.
+        Una princesa que soñaba con una noche
+        llena de magia, música, flores y las
+        personas que más ama.
 
-<br><br>
+        <br><br>
 
-El tiempo pasó y aquel sueño comenzó
-a convertirse en realidad.
+        El tiempo pasó y aquel sueño comenzó
+        a convertirse en realidad.
 
-<br><br>
+        <br><br>
 
-Hoy quiero compartir contigo una noche
-muy especial: el comienzo de un nuevo
-capítulo de mi vida.
+        Hoy quiero compartir contigo una noche
+        muy especial: el comienzo de un nuevo
+        capítulo de mi vida.
 
-</p>
+    </p>
 
-<div class="quote">
-    “Y así comienza un nuevo capítulo...”
-</div>
+    <div class="quote">
+        “Y así comienza un nuevo capítulo...”
+    </div>
 
 </section>
 
 
-<!-- =========================
-     TIANA
-========================= -->
+<!-- =================================
+     SECCIÓN TIANA
+================================= -->
 
 <section class="magic-section">
 
-<div class="magic-image">
+    <div class="magic-image">
 
-    <img
-        src="TIANAS.png"
-        alt="Tiana">
+        <img
+            src="TIANAS.png"
+            alt="Tiana">
 
-</div>
+    </div>
 
-<div class="magic-text">
 
-<div class="frog">
-    🐸
-</div>
+    <div class="magic-text">
 
-<h2>
-    Un cuento de hadas
-</h2>
+        <div class="frog">
+            🐸
+        </div>
 
-<p>
+        <h2>
+            Un cuento de hadas
+        </h2>
 
-Entre luciérnagas, nenúfares,
-estrellas y sueños por cumplir,
+        <p>
 
-<br><br>
+            Entre luciérnagas, nenúfares,
+            estrellas y sueños por cumplir,
 
-quiero que seas parte de una noche
-que guardaré para siempre
-en mi corazón.
+            <br><br>
 
-<br><br>
+            quiero que seas parte de una noche
+            que guardaré para siempre
+            en mi corazón.
 
-Porque algunas historias
-merecen celebrarse juntos.
+            <br><br>
 
-</p>
+            Porque algunas historias
+            merecen celebrarse juntos.
 
-<div class="lotus">
-    🪷
-</div>
+        </p>
 
-</div>
+        <div class="lotus">
+            🪷
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =================================
      EVENTOS
-========================= -->
+================================= -->
 
 <section class="events">
 
-<h2>
-    Los momentos de la noche
-</h2>
+    <h2>
+        Los momentos de la noche
+    </h2>
 
-<div class="gold-line"></div>
-
-<div class="events-grid">
+    <div class="gold-line"></div>
 
 
-<div class="card">
-
-<div class="icon">
-    ⛪
-</div>
-
-<h3>
-    Ceremonia
-</h3>
-
-<p>
-
-<strong>
-    05 de diciembre de 2026
-</strong>
-
-<br><br>
-
-Hora:
-
-<br>
-
-PENDIENTE
-
-<br><br>
-
-Iglesia:
-
-<br>
-
-PENDIENTE
-
-</p>
-
-<a
-    href="https://www.google.com/maps"
-    target="_blank"
-    class="map">
-
-    VER UBICACIÓN
-
-</a>
-
-</div>
+    <div class="events-grid">
 
 
-<div class="card">
+        <!-- IGLESIA -->
 
-<div class="icon">
-    🥂
-</div>
+        <div class="card">
 
-<h3>
-    Recepción
-</h3>
+            <div class="icon">
+                ⛪
+            </div>
 
-<p>
+            <h3>
+                Ceremonia
+            </h3>
 
-<strong>
-    05 de diciembre de 2026
-</strong>
+            <p>
 
-<br><br>
+                <strong>
+                    05 de diciembre de 2026
+                </strong>
 
-Hora:
+                <br><br>
 
-<br>
+                Hora:
 
-PENDIENTE
+                <br>
 
-<br><br>
+                PENDIENTE
 
-Salón:
+                <br><br>
 
-<br>
+                Iglesia:
 
-PENDIENTE
+                <br>
 
-</p>
+                PENDIENTE
 
-<a
-    href="https://www.google.com/maps"
-    target="_blank"
-    class="map">
+            </p>
 
-    VER UBICACIÓN
+            <a
+                href="#"
+                class="map">
 
-</a>
+                VER UBICACIÓN
 
-</div>
+            </a>
 
-</div>
+        </div>
+
+
+        <!-- SALÓN -->
+
+        <div class="card">
+
+            <div class="icon">
+                🥂
+            </div>
+
+            <h3>
+                Recepción
+            </h3>
+
+            <p>
+
+                <strong>
+                    05 de diciembre de 2026
+                </strong>
+
+                <br><br>
+
+                Hora:
+
+                <br>
+
+                PENDIENTE
+
+                <br><br>
+
+                Salón:
+
+                <br>
+
+                <strong>
+                    Salón de fiestas Handylu
+                </strong>
+
+            </p>
+
+
+            <a
+                href="https://www.google.com/maps/place/Sal%C3%B3n+de+fiestas+Handylu/@19.280818,-99.5416999,15z/data=!4m6!3m5!1s0x85cd8b0048dcb7fb:0xd29c02992f8c4cff!8m2!3d19.2748849!4d-99.5478329!16s%2Fg%2F11xl8j2zjs"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="map">
+
+                VER MAPA
+
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =================================
      CUENTA REGRESIVA
-========================= -->
+================================= -->
 
 <section class="countdown">
 
-<h2>
-    Falta poco para nuestro gran día
-</h2>
+    <h2>
+        Falta poco para nuestro gran día
+    </h2>
 
-<div class="gold-line"></div>
+    <div class="gold-line"></div>
 
-<div class="counter">
 
-<div class="number">
+    <div class="counter">
 
-<strong id="days">
-    0
-</strong>
 
-<span>
-    DÍAS
-</span>
+        <div class="number">
 
-</div>
+            <strong id="days">
+                0
+            </strong>
 
-<div class="number">
+            <span>
+                DÍAS
+            </span>
 
-<strong id="hours">
-    0
-</strong>
+        </div>
 
-<span>
-    HORAS
-</span>
 
-</div>
+        <div class="number">
 
-<div class="number">
+            <strong id="hours">
+                0
+            </strong>
 
-<strong id="minutes">
-    0
-</strong>
+            <span>
+                HORAS
+            </span>
 
-<span>
-    MINUTOS
-</span>
+        </div>
 
-</div>
 
-<div class="number">
+        <div class="number">
 
-<strong id="seconds">
-    0
-</strong>
+            <strong id="minutes">
+                0
+            </strong>
 
-<span>
-    SEGUNDOS
-</span>
+            <span>
+                MINUTOS
+            </span>
 
-</div>
+        </div>
 
-</div>
+
+        <div class="number">
+
+            <strong id="seconds">
+                0
+            </strong>
+
+            <span>
+                SEGUNDOS
+            </span>
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =================================
      DRESS CODE
-========================= -->
+================================= -->
 
 <section class="dress">
 
-<div class="lotus">
-    👑
-</div>
+    <div class="lotus">
+        👑
+    </div>
 
-<h2>
-    Código de vestimenta
-</h2>
+    <h2>
+        Código de vestimenta
+    </h2>
 
-<div class="gold-line"></div>
+    <div class="gold-line"></div>
 
-<p>
+    <p>
 
-<strong>
-    ELEGANTE
-</strong>
+        <strong>
+            ELEGANTE
+        </strong>
 
-<br><br>
+        <br><br>
 
-Con mucho cariño te pedimos vestir
-de manera elegante para esta noche.
+        Con mucho cariño te pedimos vestir
+        de manera elegante para esta noche.
 
-<br><br>
+        <br><br>
 
-El color verde queda reservado
-para la quinceañera.
+        El color verde queda reservado
+        para la quinceañera.
 
-</p>
+    </p>
 
 </section>
 
 
-<!-- =========================
+<!-- =================================
      REGALOS
-========================= -->
+================================= -->
 
 <section class="gifts">
 
-<div class="lotus">
-    🎁
-</div>
+    <div class="lotus">
+        🎁
+    </div>
 
-<h2>
-    Lluvia de regalos
-</h2>
+    <h2>
+        Lluvia de regalos
+    </h2>
 
-<div class="gold-line"></div>
+    <div class="gold-line"></div>
 
-<p>
+    <p>
 
-Tu presencia en este día
-es el mejor regalo.
+        Tu presencia en este día
+        es el mejor regalo.
 
-<br><br>
+        <br><br>
 
-Si deseas obsequiarme algún detalle,
-será recibido con mucho cariño.
+        Si deseas obsequiarme algún detalle,
+        será recibido con mucho cariño.
 
-<br><br>
+        <br><br>
 
-<strong>
-    DATOS PENDIENTES
-</strong>
+        <strong>
+            DATOS PENDIENTES
+        </strong>
 
-</p>
+    </p>
 
 </section>
 
 
-<!-- =========================
+<!-- =================================
      CONFIRMACIÓN
-========================= -->
+================================= -->
 
 <section class="confirm">
 
-<div class="lotus">
-    🪷
-</div>
+    <div class="lotus">
+        🪷
+    </div>
 
-<h2>
-    Confirma tu asistencia
-</h2>
+    <h2>
+        Confirma tu asistencia
+    </h2>
 
-<div class="gold-line"></div>
+    <div class="gold-line"></div>
 
-<p>
+    <p>
 
-Será un honor compartir contigo
-esta noche tan importante.
+        Será un honor compartir contigo
+        esta noche tan importante.
 
-<br><br>
+        <br><br>
 
-Por favor confirma tu asistencia
-antes de:
+        Por favor confirma tu asistencia
+        antes de:
 
-<br><br>
+        <br><br>
 
-<strong>
-    FECHA PENDIENTE
-</strong>
+        <strong>
+            FECHA PENDIENTE
+        </strong>
 
-</p>
+    </p>
 
-<a
-    href="#"
-    class="whatsapp"
-    onclick="confirmar(event)">
 
-    CONFIRMAR ASISTENCIA
+    <a
+        href="#"
+        class="whatsapp"
+        onclick="confirmar(event)">
 
-</a>
+        CONFIRMAR ASISTENCIA
+
+    </a>
 
 </section>
 
 
-<!-- =========================
+<!-- =================================
      FINAL
-========================= -->
+================================= -->
 
 <section class="final">
 
-<div class="crown">
-    ♕
-</div>
+    <div class="crown">
+        ♕
+    </div>
 
-<h2>
-    Gracias por ser parte
-    de mi cuento
-</h2>
+    <h2>
+        Gracias por ser parte
+        de mi cuento
+    </h2>
 
-<p>
+    <p>
 
-Hay noches que pasan...
+        Hay noches que pasan...
 
-<br>
+        <br>
 
-y hay noches que se quedan
-para siempre en el corazón.
+        y hay noches que se quedan
+        para siempre en el corazón.
 
-</p>
+    </p>
 
-<p>
+    <p>
 
-Con cariño,
+        Con cariño,
 
-<br><br>
+        <br><br>
 
-<strong>
-    LEYDANI TROCHE
-</strong>
+        <strong>
+            LEYDANI TROCHE
+        </strong>
 
-</p>
+    </p>
 
-<p>
-    05 · 12 · 2026
-</p>
+    <p>
+        05 · 12 · 2026
+    </p>
 
-<p style="font-size:25px;">
-    🪷 ✦ 🐸 ✦ 🪷
-</p>
+    <p style="font-size:25px;">
+        🪷 ✦ 🐸 ✦ 🪷
+    </p>
 
 </section>
 
 
 </div>
+
 </main>
 
 
 <script>
 
-/* =========================
-   ABRIR INVITACIÓN
-========================= */
+/* =================================
+   ABRIR SOBRE + MÚSICA
+================================= */
 
 function openInvitation(){
 
@@ -1569,28 +1758,30 @@ function openInvitation(){
         );
 
 
+    /* Animación del sobre */
+
     envelope.classList.add(
         "open"
     );
 
 
-    /*
-       La música comienza al tocar
-       el sobre.
-    */
+    /* Música */
 
     music.volume = 0.45;
 
     music.play().catch(
-        function(){
+        function(error){
 
             console.log(
-                "No se pudo reproducir la canción."
+                "La música no pudo reproducirse:",
+                error
             );
 
         }
     );
 
+
+    /* Mostrar invitación */
 
     setTimeout(
         function(){
@@ -1610,9 +1801,9 @@ function openInvitation(){
 }
 
 
-/* =========================
+/* =================================
    CUENTA REGRESIVA
-========================= */
+================================= */
 
 const eventDate =
     new Date(
@@ -1629,7 +1820,9 @@ function countdown(){
         eventDate - now;
 
 
-    if(difference <= 0){
+    if(
+        difference <= 0
+    ){
 
         document.getElementById(
             "days"
@@ -1708,9 +1901,9 @@ setInterval(
 );
 
 
-/* =========================
-   WHATSAPP PROVISIONAL
-========================= */
+/* =================================
+   CONFIRMACIÓN
+================================= */
 
 function confirmar(event){
 
