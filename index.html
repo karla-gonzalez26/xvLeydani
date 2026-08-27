@@ -261,7 +261,7 @@ body.no-scroll{
 
 
 /* =========================================================
-   REPRODUCTOR DE YOUTUBE OCULTO
+   REPRODUCTOR DE YOUTUBE
 ========================================================= */
 
 #musicPlayer{
@@ -271,8 +271,8 @@ body.no-scroll{
     width:1px;
     height:1px;
 
-    left:-100px;
-    top:-100px;
+    left:-1000px;
+    top:-1000px;
 
     opacity:0;
 
@@ -324,7 +324,9 @@ body.no-scroll{
 }
 
 
-/* SOBRE */
+/* =========================================================
+   SOBRE
+========================================================= */
 
 .envelope{
 
@@ -567,7 +569,9 @@ body.no-scroll{
 }
 
 
-/* BORDES DORADOS */
+/* =========================================================
+   BORDES DORADOS
+========================================================= */
 
 .paper::before{
 
@@ -774,7 +778,7 @@ body.no-scroll{
 
 
 /* =========================================================
-   FOTO PRINCIPAL PROVISIONAL
+   FOTO PRINCIPAL
 ========================================================= */
 
 .photo-placeholder{
@@ -803,17 +807,14 @@ body.no-scroll{
     rgba(50,70,50,.2);
 }
 
-.photo-inner{
+.main-photo{
 
     width:100%;
     height:100%;
 
-    display:flex;
+    object-fit:cover;
 
-    align-items:center;
-    justify-content:center;
-
-    flex-direction:column;
+    display:block;
 
     background:
     linear-gradient(
@@ -821,44 +822,6 @@ body.no-scroll{
         #cbd9b7,
         #78916d
     );
-
-    color:white;
-}
-
-.photo-symbol{
-
-    font-size:75px;
-}
-
-.main-photo{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-}
-
-.image-placeholder{
-    overflow:hidden;
-}
-
-.image-placeholder img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-}
-
-.photo-inner span{
-
-    margin-top:15px;
-
-    font-family:Arial,sans-serif;
-
-    font-size:10px;
-
-    letter-spacing:2px;
-
-    line-height:1.7;
 }
 
 
@@ -960,6 +923,19 @@ body.no-scroll{
     letter-spacing:2px;
 
     line-height:1.7;
+
+    overflow:hidden;
+}
+
+.image-placeholder img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
 }
 
 .image-text{
@@ -1066,6 +1042,8 @@ body.no-scroll{
     border:
     1px solid
     rgba(185,148,78,.25);
+
+    pointer-events:none;
 }
 
 .event-icon{
@@ -1111,6 +1089,21 @@ body.no-scroll{
     letter-spacing:1px;
 
     border-radius:20px;
+
+    position:relative;
+
+    z-index:10;
+
+    transition:
+    transform .2s ease,
+    background .2s ease;
+}
+
+.map:hover{
+
+    transform:translateY(-2px);
+
+    background:#3d6548;
 }
 
 
@@ -1369,6 +1362,8 @@ body.no-scroll{
         #728c68
     );
 
+    overflow:hidden;
+
     display:flex;
 
     align-items:center;
@@ -1382,6 +1377,17 @@ body.no-scroll{
     font-size:10px;
 
     letter-spacing:2px;
+}
+
+.gallery-photo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
 }
 
 .gallery-photo:nth-child(2){
@@ -1568,6 +1574,8 @@ body.no-scroll{
     .image-placeholder{
 
         min-height:430px;
+
+        height:430px;
     }
 
     .event-grid{
@@ -1599,6 +1607,80 @@ body.no-scroll{
 
         grid-template-columns:
         1fr 45px 1fr;
+    }
+
+    .flower-decoration{
+
+        font-size:30px;
+    }
+
+    .flower-top-left{
+        left:20px;
+    }
+
+    .flower-top-right{
+        right:20px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES MUY PEQUEÑOS
+========================================================= */
+
+@media(max-width:400px){
+
+    .envelope{
+
+        height:205px;
+    }
+
+    .envelope-front::before{
+
+        border-left-width:145px;
+        border-right-width:145px;
+    }
+
+    .flap{
+
+        border-left-width:145px;
+        border-right-width:145px;
+    }
+
+    .envelope-title{
+
+        font-size:16px;
+    }
+
+    .cover h1{
+
+        font-size:58px;
+    }
+
+    .cover-subtitle{
+
+        font-size:20px;
+    }
+
+    .timeline-item{
+
+        grid-template-columns:
+        1fr 35px 1fr;
+    }
+
+    .timeline-time{
+
+        padding-right:10px;
+
+        font-size:12px;
+    }
+
+    .timeline-name{
+
+        padding-left:10px;
+
+        font-size:12px;
     }
 
 }
@@ -1634,20 +1716,31 @@ body.no-scroll{
 <div class="firefly"></div>
 
 
-
 <!-- =====================================================
-     MÚSICA DE FONDO
-     Archivo local: cancion.mp3
-     Sube cancion.mp3 al mismo repositorio que index.html
+     MÚSICA DE YOUTUBE
+     
+     VIDEO:
+     https://youtu.be/5vHv02NMtpI
+
+     Se inicia cuando la persona toca el sobre.
 ===================================================== -->
 
-<audio id="bgMusic" preload="auto" loop>
-    <source src="cancion.mp3" type="audio/mpeg">
-    Tu navegador no admite audio HTML5.
-</audio>
-
-</div>
-
+<iframe
+    id="musicPlayer"
+    src="https://www.youtube.com/embed/5vHv02NMtpI?enablejsapi=1&loop=1&playlist=5vHv02NMtpI"
+    title="Música de XV años"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    style="
+        position:fixed;
+        width:1px;
+        height:1px;
+        left:-1000px;
+        top:-1000px;
+        opacity:0;
+        pointer-events:none;
+    ">
+</iframe>
 
 
 <!-- =====================================================
@@ -1710,7 +1803,6 @@ body.no-scroll{
 </section>
 
 
-
 <!-- =====================================================
      INVITACIÓN
 ===================================================== -->
@@ -1728,7 +1820,6 @@ body.no-scroll{
 <div class="flower-decoration flower-top-right">
 🪷🌿
 </div>
-
 
 
 <!-- =====================================================
@@ -1779,15 +1870,22 @@ MIS XV AÑOS
 <div class="gold-line"></div>
 
 
+<!-- FOTO PRINCIPAL -->
 
-<!-- FOTO PRINCIPAL
-     Archivo local: TIANAS.png
-     Después puedes cambiarla por la foto de Leydani. -->
 <div class="photo-placeholder">
-    <img src="TIANAS.png" alt="Tiana y el sapo" class="main-photo">
+
+    <img
+        src="TIANAS.png"
+        alt="Tiana y el sapo"
+        class="main-photo"
+        onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;color:white;text-align:center;padding:30px;&quot;>Aquí aparecerá la foto principal</div>';"
+    >
+
 </div>
 
+
 <div class="small-title">
+
 05 · DICIEMBRE · 2026
 
 </div>
@@ -1796,7 +1894,6 @@ MIS XV AÑOS
 </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1850,7 +1947,6 @@ capítulo de mi vida.
 </section>
 
 
-
 <!-- =====================================================
      TIANA / FOTO TEMÁTICA
 ===================================================== -->
@@ -1859,7 +1955,13 @@ capítulo de mi vida.
 
 
 <div class="image-placeholder">
-    <img src="TIANAS.png" alt="Tiana y el sapo">
+
+    <img
+        src="TIANAS.png"
+        alt="Tiana y el sapo"
+        onerror="this.style.display='none'; this.parentElement.innerHTML='TIANA Y EL SAPO';"
+    >
+
 </div>
 
 
@@ -1900,7 +2002,6 @@ merecen celebrarse juntos.
 </section>
 
 
-
 <!-- =====================================================
      EVENTOS
 ===================================================== -->
@@ -1920,6 +2021,8 @@ Los momentos de la noche
 
 <div class="event-grid">
 
+
+<!-- CEREMONIA -->
 
 <div class="event-card">
 
@@ -1966,8 +2069,9 @@ Capilla de San Isidro Labrador
 
 
 <a
-href="https://maps.app.goo.gl/qu2LJgir4rosjK7G8"
+href="https://www.google.com/maps/search/?api=1&query=Capilla+de+San+Isidro+Labrador"
 target="_blank"
+rel="noopener noreferrer"
 class="map">
 
 VER UBICACIÓN
@@ -1978,6 +2082,7 @@ VER UBICACIÓN
 </div>
 
 
+<!-- RECEPCIÓN -->
 
 <div class="event-card">
 
@@ -2024,8 +2129,9 @@ Salón de fiestas Handylu
 
 
 <a
-href="https://maps.app.goo.gl/NenLHXxw1J9rkY9k9"
+href="https://www.google.com/maps/search/?api=1&query=Salon+de+fiestas+Handylu"
 target="_blank"
+rel="noopener noreferrer"
 class="map">
 
 VER UBICACIÓN
@@ -2039,7 +2145,6 @@ VER UBICACIÓN
 </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -2102,7 +2207,6 @@ Falta poco para nuestro gran día
 
 
 </section>
-
 
 
 <!-- =====================================================
@@ -2219,6 +2323,7 @@ Comida
 
 </div>
 
+
 <div class="timeline-item">
 
 <div class="timeline-time">
@@ -2236,6 +2341,7 @@ Vals
 </div>
 
 </div>
+
 
 <div class="timeline-item">
 
@@ -2259,7 +2365,6 @@ Vals
 </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -2310,7 +2415,6 @@ para la quinceañera. 💚
 </section>
 
 
-
 <!-- =====================================================
      GALERÍA
 ===================================================== -->
@@ -2330,30 +2434,75 @@ Momentos de mi historia
 
 <div class="gallery-grid">
 
-<div class="gallery-photo">
-FOTO 01
-</div>
+
+<!-- FOTO 1 -->
 
 <div class="gallery-photo">
-FOTO 02
+
+    <img
+        src="foto1.jpg"
+        alt="Foto 1"
+        onerror="this.style.display='none'; this.parentElement.innerHTML='FOTO 01';"
+    >
+
 </div>
 
-<div class="gallery-photo">
-FOTO 03
-</div>
+
+<!-- FOTO 2 -->
 
 <div class="gallery-photo">
-FOTO 04
+
+    <img
+        src="foto2.jpg"
+        alt="Foto 2"
+        onerror="this.style.display='none'; this.parentElement.innerHTML='FOTO 02';"
+    >
+
 </div>
 
+
+<!-- FOTO 3 -->
+
 <div class="gallery-photo">
-FOTO 05
+
+    <img
+        src="foto3.jpg"
+        alt="Foto 3"
+        onerror="this.style.display='none'; this.parentElement.innerHTML='FOTO 03';"
+    >
+
 </div>
+
+
+<!-- FOTO 4 -->
+
+<div class="gallery-photo">
+
+    <img
+        src="foto4.jpg"
+        alt="Foto 4"
+        onerror="this.style.display='none'; this.parentElement.innerHTML='FOTO 04';"
+    >
+
+</div>
+
+
+<!-- FOTO 5 -->
+
+<div class="gallery-photo">
+
+    <img
+        src="foto5.jpg"
+        alt="Foto 5"
+        onerror="this.style.display='none'; this.parentElement.innerHTML='FOTO 05';"
+    >
+
+</div>
+
 
 </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -2403,7 +2552,6 @@ DATOS PENDIENTES
 
 
 </section>
-
 
 
 <!-- =====================================================
@@ -2462,7 +2610,6 @@ CONFIRMAR ASISTENCIA
 
 
 </section>
-
 
 
 <!-- =====================================================
@@ -2536,7 +2683,6 @@ LEYDANI TROCHE
 </main>
 
 
-
 <!-- =====================================================
      JAVASCRIPT
 ===================================================== -->
@@ -2544,12 +2690,42 @@ LEYDANI TROCHE
 <script>
 
 /* =========================================================
-   MÚSICA LOCAL
-   El archivo debe llamarse exactamente: cancion.mp3
+   YOUTUBE API
 ========================================================= */
 
-const bgMusic = document.getElementById("bgMusic");
-bgMusic.volume = 0.45;
+let musicPlayer = null;
+
+let musicReady = false;
+
+
+/*
+   Esta función es llamada automáticamente
+   por la API de YouTube.
+*/
+
+function onYouTubeIframeAPIReady(){
+
+    musicPlayer = new YT.Player(
+        "musicPlayer",
+        {
+
+            events:{
+
+                onReady:function(){
+
+                    musicReady = true;
+
+                    musicPlayer.setVolume(45);
+
+                }
+
+            }
+
+        }
+    );
+
+}
+
 
 /* =========================================================
    ABRIR INVITACIÓN
@@ -2567,18 +2743,38 @@ function openInvitation(){
     document.getElementById("invitation");
 
 
+    /*
+       Evitar que se vuelva a ejecutar
+       varias veces.
+    */
+
+    if(envelope.classList.contains("open")){
+        return;
+    }
+
+
     /* Abrir sobre */
 
     envelope.classList.add("open");
 
 
-    /* Iniciar música local al tocar el sobre.
-       Esto funciona mejor en celulares porque el play ocurre
-       directamente dentro de la acción del usuario. */
-    bgMusic.currentTime = 0;
-    bgMusic.play().catch(function(error){
-        console.log("La reproducción automática fue bloqueada:", error);
-    });
+    /*
+       Iniciar música.
+
+       El usuario acaba de tocar el sobre,
+       por lo que el navegador considera
+       esto una interacción del usuario.
+    */
+
+    if(
+        musicReady &&
+        musicPlayer &&
+        musicPlayer.playVideo
+    ){
+
+        musicPlayer.playVideo();
+
+    }
 
 
     /* Mostrar invitación */
@@ -2601,6 +2797,17 @@ function openInvitation(){
 /* =========================================================
    CUENTA REGRESIVA
 ========================================================= */
+
+
+/*
+   Fecha del evento:
+
+   05 de diciembre de 2026
+   19:00 horas
+
+   La hora utiliza la zona horaria
+   del dispositivo de la persona.
+*/
 
 const eventDate =
 new Date(
@@ -2680,6 +2887,7 @@ function countdown(){
 
 countdown();
 
+
 setInterval(
     countdown,
     1000
@@ -2687,7 +2895,7 @@ setInterval(
 
 
 /* =========================================================
-   CONFIRMACIÓN PROVISIONAL
+   CONFIRMACIÓN
 ========================================================= */
 
 function confirmAttendance(event){
@@ -2700,6 +2908,15 @@ function confirmAttendance(event){
 
 }
 
+</script>
+
+
+<!-- =====================================================
+     API DE YOUTUBE
+===================================================== -->
+
+<script
+src="https://www.youtube.com/iframe_api">
 </script>
 
 
